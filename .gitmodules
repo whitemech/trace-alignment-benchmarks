@@ -1,0 +1,6 @@
+[submodule "third_party/downward"]
+	path = third_party/downward
+	url = git@github.com:aibasel/downward.git
+[submodule "third_party/trace-alignment"]
+	path = third_party/trace-alignment
+	url = git@github.com:whitemech/trace-alignment.git
