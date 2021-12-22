@@ -4,6 +4,7 @@ from pathlib import Path
 import click
 import numpy as np
 import pandas as pd
+
 from benchmark.tools import ToolID, tool_registry
 from benchmark.utils.base import get_tools
 

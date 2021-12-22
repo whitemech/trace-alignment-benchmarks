@@ -4,12 +4,13 @@ from enum import Enum
 from pathlib import Path
 from typing import List, Optional, Union
 
+from planning_with_past import REPO_ROOT
+
 from benchmark.tools.core import (Heuristic, Result, SearchAlg, Status, Tool,
                                   ToolID, extract_from_fd, extract_from_mynd)
 from benchmark.utils.base import try_to_get_float
-from planning_with_past import REPO_ROOT
 
-DEFAULT_BIN_F4LP_PATH = (REPO_ROOT / "bin" / "fond4ltlfpltlf_wrapper").absolute()
+DEFAULT_BIN_P4P_PATH = (REPO_ROOT / "bin" / "plan4past").absolute()
 
 
 class SupportedPlanners:
@@ -17,7 +18,7 @@ class SupportedPlanners:
     MYND = "mynd"
 
 
-class Fond4LtlfPltlfTool(Tool, ABC):
+class Plan4PastTool(Tool, ABC):
     """Implement abstract FOND4LTLfPLTLf tool wrapper."""
 
     def __init__(self, binary_path: str, planner_id: Union[str, SupportedPlanners]):
@@ -36,27 +37,28 @@ class Fond4LtlfPltlfTool(Tool, ABC):
     ) -> List[str]:
         """Get CLI arguments."""
         assert formula is not None, "formula argument must be specified"
-        assert mapping is None, "mapping argument not supported"
 
         cli_args = [
             self.binary_path,
             "-t",
             self.planner_id,
-            "-d",
+            "--domain",
             domain,
-            "-p",
+            "--problem",
             problem,
-            "-g",
+            "--formula",
             formula,
         ]
+        if mapping:
+            cli_args += ["--map", mapping]
         if working_dir:
             cli_args += ["--working-dir", working_dir]
         return cli_args
 
 
-class Fond4LtlfPltlfFD(Fond4LtlfPltlfTool):
+class Plan4PastToolFD(Plan4PastTool):
 
-    NAME = "F4LP-FD"
+    NAME = "P4P-FD"
 
     def __init__(
         self,
@@ -89,9 +91,9 @@ class Fond4LtlfPltlfFD(Fond4LtlfPltlfTool):
         return extract_from_fd(output)
 
 
-class Fond4LtlfPltlfMyND(Fond4LtlfPltlfTool):
+class Plan4PastToolMyND(Plan4PastTool):
 
-    NAME = "F4LP-MyND"
+    NAME = "P4P-MyND"
 
     def __init__(
         self,

@@ -22,7 +22,9 @@ PACKAGE_ROOT = Path(inspect.getframeinfo(inspect.currentframe()).filename).paren
 FD_DIR = REPO_ROOT / "third_party" / "downward"
 FD_DRIVER = (FD_DIR / "fast-downward.py").resolve()
 
-TRAL_JAR = (REPO_ROOT / "third_party" / "trace-alignment" / "app/build/libs" / "app-0.0.1.jar").resolve()
+TRAL_JAR = (
+    REPO_ROOT / "third_party" / "trace-alignment" / "app/build/libs" / "app-0.0.1.jar"
+).resolve()
 # TRAL_DIR = (REPO_ROOT / "third_party" / "myND").resolve()  # type: ignore
 # TRAL_SRC_DIR = TRAL_DIR / "src"
 OUTPUT_DIR = REPO_ROOT
@@ -30,31 +32,18 @@ OUTPUT_DIR = REPO_ROOT
 # PLTLF_WRAPPER_PATH = BIN_DIR / "pltlf-planner"
 # LTLFOND2FOND_DIR = (REPO_ROOT / "third_party" / "ltlfond2fond").resolve()  # type: ignore
 
-ENCODINGS = {
-    0,
-    1,
-    2,
-    3,
-    4
-}
+ENCODINGS = {0, 1, 2, 3, 4}
 
 ALGORITHMS = {
     "astar",
 }
-HEURISTICS = {
-    "blind",
-    "hmax"
-}
+HEURISTICS = {"blind", "hmax"}
 
 
 def launch(cmd, cwd=None):
     """Launch a command."""
     print("Running command: ", " ".join(map(str, cmd)))
-    process = Popen(
-        args=cmd,
-        encoding="utf-8",
-        cwd=cwd,
-    )
+    process = Popen(args=cmd, encoding="utf-8", cwd=cwd,)
     try:
         process.wait()
     except KeyboardInterrupt:

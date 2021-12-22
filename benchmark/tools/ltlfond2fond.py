@@ -4,12 +4,13 @@ from enum import Enum
 from pathlib import Path
 from typing import List, Optional, Union
 
+from planning_with_past import REPO_ROOT
+
 from benchmark.tools.core import (Heuristic, Result, SearchAlg, Status, Tool,
                                   ToolID, extract_from_fd, extract_from_mynd)
 from benchmark.utils.base import try_to_get_float
-from planning_with_past import REPO_ROOT
 
-DEFAULT_BIN_P4P_PATH = (REPO_ROOT / "bin" / "plan4past").absolute()
+DEFAULT_BIN_LF2F_PATH = (REPO_ROOT / "bin" / "ltlfond2fond_wrapper").absolute()
 
 
 class SupportedPlanners:
@@ -17,8 +18,8 @@ class SupportedPlanners:
     MYND = "mynd"
 
 
-class Plan4PastTool(Tool, ABC):
-    """Implement abstract FOND4LTLfPLTLf tool wrapper."""
+class LTLFond2FondTool(Tool, ABC):
+    """Implement abstract LTLFond2Fond tool wrapper."""
 
     def __init__(self, binary_path: str, planner_id: Union[str, SupportedPlanners]):
         """Initialize the tool."""
@@ -36,28 +37,27 @@ class Plan4PastTool(Tool, ABC):
     ) -> List[str]:
         """Get CLI arguments."""
         assert formula is not None, "formula argument must be specified"
+        assert mapping is None, "mapping argument not supported"
 
         cli_args = [
             self.binary_path,
             "-t",
             self.planner_id,
-            "--domain",
+            "-d",
             domain,
-            "--problem",
+            "-p",
             problem,
-            "--formula",
+            "-g",
             formula,
         ]
-        if mapping:
-            cli_args += ["--map", mapping]
         if working_dir:
             cli_args += ["--working-dir", working_dir]
         return cli_args
 
 
-class Plan4PastToolFD(Plan4PastTool):
+class LTLFond2FondFDTool(LTLFond2FondTool):
 
-    NAME = "P4P-FD"
+    NAME = "LF2F-FD"
 
     def __init__(
         self,
@@ -90,9 +90,9 @@ class Plan4PastToolFD(Plan4PastTool):
         return extract_from_fd(output)
 
 
-class Plan4PastToolMyND(Plan4PastTool):
+class LTLFond2FondMyNDTool(LTLFond2FondTool):
 
-    NAME = "P4P-MyND"
+    NAME = "LF2F-MyND"
 
     def __init__(
         self,
