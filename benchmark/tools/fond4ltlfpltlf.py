@@ -4,12 +4,13 @@ from enum import Enum
 from pathlib import Path
 from typing import List, Optional, Union
 
+from planning_with_past import REPO_ROOT
+
 from benchmark.tools.core import (Heuristic, Result, SearchAlg, Status, Tool,
                                   ToolID, extract_from_fd, extract_from_mynd)
 from benchmark.utils.base import try_to_get_float
-from planning_with_past import REPO_ROOT
 
-DEFAULT_BIN_LF2F_PATH = (REPO_ROOT / "bin" / "ltlfond2fond_wrapper").absolute()
+DEFAULT_BIN_F4LP_PATH = (REPO_ROOT / "bin" / "fond4ltlfpltlf_wrapper").absolute()
 
 
 class SupportedPlanners:
@@ -17,8 +18,8 @@ class SupportedPlanners:
     MYND = "mynd"
 
 
-class LTLFond2FondTool(Tool, ABC):
-    """Implement abstract LTLFond2Fond tool wrapper."""
+class Fond4LtlfPltlfTool(Tool, ABC):
+    """Implement abstract FOND4LTLfPLTLf tool wrapper."""
 
     def __init__(self, binary_path: str, planner_id: Union[str, SupportedPlanners]):
         """Initialize the tool."""
@@ -54,9 +55,9 @@ class LTLFond2FondTool(Tool, ABC):
         return cli_args
 
 
-class LTLFond2FondFDTool(LTLFond2FondTool):
+class Fond4LtlfPltlfFD(Fond4LtlfPltlfTool):
 
-    NAME = "LF2F-FD"
+    NAME = "F4LP-FD"
 
     def __init__(
         self,
@@ -89,9 +90,9 @@ class LTLFond2FondFDTool(LTLFond2FondTool):
         return extract_from_fd(output)
 
 
-class LTLFond2FondMyNDTool(LTLFond2FondTool):
+class Fond4LtlfPltlfMyND(Fond4LtlfPltlfTool):
 
-    NAME = "LF2F-MyND"
+    NAME = "F4LP-MyND"
 
     def __init__(
         self,

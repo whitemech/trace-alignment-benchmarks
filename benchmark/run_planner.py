@@ -7,9 +7,10 @@ from pathlib import Path
 from typing import Dict, Optional
 
 import click
+from click import FloatRange
+
 from benchmark.tools import tool_registry
 from benchmark.tools.core import Result, ToolID
-from click import FloatRange
 
 DEFAULT_TIMEOUT: float = 60.0
 

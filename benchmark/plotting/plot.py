@@ -1,4 +1,4 @@
-"""Plot the result for counter benchmarks."""
+"""Plot the result for counter benchmark."""
 from pathlib import Path
 from typing import Optional
 
@@ -7,6 +7,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
 from benchmark.tools import ToolID, tool_registry
 from benchmark.utils.base import get_tools
 from benchmark.utils.plot_utils import try_unzip
