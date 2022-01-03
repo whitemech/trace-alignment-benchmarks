@@ -7,15 +7,9 @@ from enum import Enum
 from pathlib import Path
 from typing import List
 
-from pddl.logic.base import And, Atomic
-from pddl.parser.problem import ProblemParser
-
 BENCHMARK_ROOT = Path(inspect.getframeinfo(inspect.currentframe()).filename).parent.parent  # type: ignore
 REPO_ROOT = BENCHMARK_ROOT.parent
 
-
-DATASET_DIR_DET = "deterministic"
-DATASET_DIR_NONDET = "non-deterministic"
 
 TSV_FILENAME = "output.tsv"
 
@@ -39,20 +33,6 @@ def try_to_get_float(pattern: str, text: str, default=-1.0) -> float:
     number_match = re.search(pattern, text)
     number = float(number_match.group(1)) if number_match else default
     return number
-
-
-def get_reachability_goal(problem_path: Path) -> str:
-    """Get reachability goal from problem."""
-    problem_obj = ProblemParser()(problem_path.read_text())
-    goal_formula = problem_obj.goal
-    if isinstance(goal_formula, And):
-        # [1:-1] to remove brackets
-        return " & ".join(
-            [str(atom)[1:-1].replace(" ", "_") for atom in goal_formula.operands]
-        )
-    elif isinstance(goal_formula, Atomic):
-        return str(goal_formula)[1:-1].replace(" ", "_")
-    raise ValueError("expected an 'and' goal")
 
 
 def get_tools(benchmark_dir: Path):
@@ -80,31 +60,3 @@ def default_output_dir(file_name):
     return Path("results") / (
         Path(file_name).stem + "-" + datetime.datetime.now().isoformat()
     )
-
-
-def get_dataset_dir(tool_id: str, dataset_dir_root: Path, dataset_name: str) -> Path:
-    prefix = DATASET_DIR_DET if "fd" in tool_id else DATASET_DIR_NONDET
-    return dataset_dir_root / prefix / dataset_name
-
-
-def generate_problems(
-    min_param: int,
-    max_param: int,
-    step: int,
-    output_dir: Path,
-    generate_problem_callable,
-) -> List[Path]:
-    """Generate problems"""
-    result = []
-    for i in range(min_param, max_param + 1, step):
-        problem_i = generate_problem_callable(i)
-        problem_path = output_dir / f"p{i:02d}.pddl"
-        problem_path.write_text(problem_i)
-        result.append(problem_path)
-    return result
-
-
-def is_deterministic(domain_path: Path):
-    content = domain_path.read_text()
-    match = re.search("\W:non-deterministic\W", content)
-    return match is None
