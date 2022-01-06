@@ -1,3 +1,4 @@
+import logging
 import os
 import re
 import signal
@@ -13,28 +14,8 @@ from benchmark.utils.base import try_to_get_float
 
 
 class ToolID(Enum):
-    FAST_DOWNWARD_FF = "fd-ff"
-    FAST_DOWNWARD_HMAX = "fd-hmax"
-    MYND_STRONG_FF = "mynd-s-ff"
-    MYND_STRONG_CYCLIC_FF = "mynd-sc-ff"
-    FOND4LTLfPLTLf_FD_FF = "f4lp-fd-ff"
-    FOND4LTLfPLTLf_FD_HMAX = "f4lp-fd-hmax"
-    FOND4LTLfPLTLf_MYND_STRONG_FF = "f4lp-mynd-s-ff"
-    FOND4LTLfPLTLf_MYND_STRONG_HMAX = "f4lp-mynd-s-hmax"
-    FOND4LTLfPLTLf_MYND_STORNG_CYCLIC_FF = "f4lp-mynd-sc-ff"
-    FOND4LTLfPLTLf_MYND_STORNG_CYCLIC_HMAX = "f4lp-mynd-sc-hmax"
-    PLAN4PAST_FD_FF = "p4p-fd-ff"
-    PLAN4PAST_FD_HMAX = "p4p-fd-hmax"
-    PLAN4PAST_MYND_STRONG_FF = "p4p-mynd-s-ff"
-    PLAN4PAST_MYND_STRONG_HMAX = "p4p-mynd-s-hmax"
-    PLAN4PAST_MYND_STORNG_CYCLIC_FF = "p4p-mynd-sc-ff"
-    PLAN4PAST_MYND_STORNG_CYCLIC_HMAX = "p4p-mynd-sc-hmax"
-    LTLFOND2FOND_FD_FF = "lf2f-fd-ff"
-    LTLFOND2FOND_FD_HMAX = "lf2f-fd-hmax"
-    LTLFOND2FOND_MYND_STRONG_FF = "lf2f-mynd-s-ff"
-    LTLFOND2FOND_MYND_STRONG_HMAX = "lf2f-mynd-s-hmax"
-    LTLFOND2FOND_MYND_STORNG_CYCLIC_FF = "lf2f-mynd-sc-ff"
-    LTLFOND2FOND_MYND_STORNG_CYCLIC_HMAX = "lf2f-mynd-sc-hmax"
+    TRAL_FD_BLIND = "tral-fd-blind"
+    TRAL_FD_HMAX = "tral-fd-hmax"
 
 
 class Status(Enum):
@@ -46,17 +27,22 @@ class Status(Enum):
 
 class SearchAlg(Enum):
     """Search algorithms"""
-
     ASTAR = "astar"
-    LAOSTAR = "laostar"
-    AOSTAR = "aostar"
 
 
 class Heuristic(Enum):
     """Heuristics"""
-
-    FF = "ff"
+    BLIND = "blind"
     HMAX = "hmax"
+
+
+class Encoding(Enum):
+    """Encodings"""
+    GEN = "0"
+    GEN_CONJ = "1"
+    GEN_SHARE = "2"
+    GEN_CONJ_SHARE = "3"
+    STRIPS = "4"
 
 
 @dataclass()  # frozen=True
@@ -64,9 +50,9 @@ class Result:
     name: str
     command: List[str]
     time_compilation: Optional[float]
-    time_tool: Optional[float]
-    time_end2end: Optional[float]
-    nb_node_expanded: Optional[int]
+    avg_time_tool: Optional[float]
+    avg_time_end2end: Optional[float]
+    avg_nb_node_expanded: Optional[int]
     status: Status
 
     @staticmethod
@@ -75,9 +61,9 @@ class Result:
             "name\t"
             "status\t"
             "time_compilation\t"
-            "time_tool\t"
-            "time_end2end\t"
-            "nb_node_expanded\t"
+            "avg_time_tool\t"
+            "avg_time_end2end\t"
+            "avg_nb_node_expanded\t"
             "command"
         )
 
@@ -87,9 +73,9 @@ class Result:
             name=self.name,
             status=self.status.value,
             time_compilation=self.time_compilation,
-            time_tool=self.time_tool,
-            time_end2end=self.time_end2end,
-            nb_node_expanded=self.nb_node_expanded,
+            avg_time_tool=self.avg_time_tool,
+            avg_time_end2end=self.avg_time_end2end,
+            avg_nb_node_expanded=self.avg_nb_node_expanded,
             command=" ".join(self.command),
         )
 
@@ -100,19 +86,19 @@ class Result:
             if self.time_compilation is not None
             else "None"
         )
-        time_tool_str = (
-            f"{self.time_tool:10.6f}" if self.time_tool is not None else "None"
+        avg_time_tool_str = (
+            f"{self.avg_time_tool:10.6f}" if self.avg_time_tool is not None else "None"
         )
-        time_end2end_str = (
-            f"{self.time_end2end:10.6f}" if self.time_end2end is not None else "None"
+        avg_time_end2end_str = (
+            f"{self.avg_time_end2end:10.6f}" if self.avg_time_end2end is not None else "None"
         )
         return (
             f"{self.name}\t"
             f"{self.status.value}\t"
             f"{time_compilation_str}\t"
-            f"{time_tool_str}\t"
-            f"{time_end2end_str}\t"
-            f"{self.nb_node_expanded}\t"
+            f"{avg_time_tool_str}\t"
+            f"{avg_time_end2end_str}\t"
+            f"{self.avg_nb_node_expanded}\t"
             f"{' '.join(map(str, self.command))}"
         )
 
@@ -122,9 +108,9 @@ class Result:
             f"name={self.name}\n"
             f"status={self.status}\n"
             f"time_compilation={self.time_compilation}\n"
-            f"time_tool={self.time_tool}\n"
-            f"time_end2end={self.time_end2end}\n"
-            f"nb_node_expanded={self.nb_node_expanded}\n"
+            f"avg_time_tool={self.avg_time_tool}\n"
+            f"avg_time_end2end={self.avg_time_end2end}\n"
+            f"avg_nb_node_expanded={self.avg_nb_node_expanded}\n"
             f"command={' '.join(map(str, self.command))}"
         )
 
@@ -156,10 +142,9 @@ class Tool(ABC):
 
     def plan(
         self,
-        domain: Path,
-        problem: Path,
-        formula: Optional[str] = None,
-        mapping: Optional[Path] = None,
+        log: Path,
+        formulas: Path,
+        encoding: int = 0,
         timeout: float = 5.0,
         cwd: Optional[str] = None,
         name: Optional[str] = None,
@@ -168,22 +153,21 @@ class Tool(ABC):
         """
         Apply the tool to a file.
 
-        :param domain: path to the domain file
-        :param problem: path to the problem file
-        :param mapping: path to the mapping file
-        :param formula: the PLTLf formula
+        :param log: path to the log file
+        :param formulas: path to the constraints file
+        :param encoding: encoding type
         :param timeout: the timeout in seconds
         :param cwd: the current working directory
         :param name: the experiment name
         :param working_dir: the working dir
         :return: the planning result
         """
-        args = self.get_cli_args(domain, problem, formula, mapping, working_dir)
+        args = self.get_cli_args(log, formulas, encoding, working_dir)
         start = time.perf_counter()
         timed_out = False
         print("Running command: ", " ".join(map(str, args)))
         proc = subprocess.Popen(
-            args,
+            list(map(str, args)),
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             cwd=cwd,
@@ -210,8 +194,8 @@ class Tool(ABC):
         result.command = args
 
         # in case time end2end not set by the tool, set from command
-        if result.time_end2end is None:
-            result.time_end2end = total
+        if result.avg_time_end2end is None:
+            result.avg_time_end2end = total
 
         if timed_out:
             result.status = Status.TIMEOUT
@@ -233,10 +217,9 @@ class Tool(ABC):
     @abstractmethod
     def get_cli_args(
         self,
-        domain: Path,
-        problem: Path,
-        formula: Optional[str] = None,
-        mapping: Optional[Path] = None,
+        log: Path,
+        formulas: Path,
+        encoding: int = 0,
         working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
@@ -294,36 +277,6 @@ class ToolRegistry:
         """
         tool_spec = self._specs[ToolID(tool_id)]
         return tool_spec.make(**kwargs)
-
-
-def extract_from_mynd(output):
-    tool_time = try_to_get_float("Tool time: +([0-9.]+) seconds", output)
-    compilation_time = try_to_get_float("Compilation time: +([0-9.]+) seconds", output)
-    end2end_time = try_to_get_float(
-        "Total time: +([0-9.]+) seconds", output, default=None
-    )
-
-    timed_out_match = re.search("Timed out.", output)
-    initial_proven_match = re.search("INITIAL IS PROVEN!", output)
-    initial_disproven_match = re.search("INITIAL IS DISPROVEN!", output)
-    if initial_proven_match is not None:
-        status = Status.SUCCESS
-    elif initial_disproven_match is not None:
-        status = Status.FAILURE
-    elif timed_out_match is not None:
-        status = Status.TIMEOUT
-    else:
-        status = Status.ERROR
-
-    nb_nodes_expansion_match = re.search("Number of node expansions: ([0-9]+)", output)
-    if nb_nodes_expansion_match:
-        nb_nodes_expansions = int(nb_nodes_expansion_match.group(1))
-    else:
-        nb_nodes_expansions = None
-
-    return Result(
-        "", [], compilation_time, tool_time, end2end_time, nb_nodes_expansions, status
-    )
 
 
 def extract_from_fd(output):

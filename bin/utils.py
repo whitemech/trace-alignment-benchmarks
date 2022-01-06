@@ -29,15 +29,21 @@ TRAL_JAR = (
 # TRAL_SRC_DIR = TRAL_DIR / "src"
 OUTPUT_DIR = REPO_ROOT
 
-# PLTLF_WRAPPER_PATH = BIN_DIR / "pltlf-planner"
-# LTLFOND2FOND_DIR = (REPO_ROOT / "third_party" / "ltlfond2fond").resolve()  # type: ignore
-
-ENCODINGS = {0, 1, 2, 3, 4}
+ENCODINGS = {
+    0,
+    1,
+    2,
+    3,
+    4
+}
 
 ALGORITHMS = {
     "astar",
 }
-HEURISTICS = {"blind", "hmax"}
+HEURISTICS = {
+    "blind",
+    "hmax"
+}
 
 
 def launch(cmd, cwd=None):
