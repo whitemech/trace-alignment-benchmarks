@@ -198,8 +198,8 @@ class Tool(ABC):
         result.command = args
 
         # in case time end2end not set by the tool, set from command
-        if result.avg_time_end2end is None:
-            result.avg_time_end2end = total
+        if result.time_end2end is None:
+            result.time_end2end = total
 
         if timed_out:
             result.status = Status.TIMEOUT
@@ -302,6 +302,12 @@ def extract_from_fd(output):
     else:
         status = Status.ERROR
 
+    plan_cost_match = re.search("Plan cost: ([0-9]+)", output)
+    if plan_cost_match:
+        plan_cost = int(plan_cost_match.group(1))
+    else:
+        plan_cost = None
+
     nb_nodes_expansion_match = re.search("Expanded ([0-9]+) state\(s\).", output)
     if nb_nodes_expansion_match:
         nb_nodes_expansions = int(nb_nodes_expansion_match.group(1))
@@ -309,5 +315,5 @@ def extract_from_fd(output):
         nb_nodes_expansions = None
 
     return Result(
-        "", [], compilation_time, tool_time, end2end_time, nb_nodes_expansions, status
+        "", [], compilation_time, tool_time, plan_cost, nb_nodes_expansions, end2end_time, status
     )
