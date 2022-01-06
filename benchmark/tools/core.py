@@ -178,10 +178,10 @@ class Tool(ABC):
             preexec_fn=os.setsid,
         )
         try:
-            proc.wait(timeout=timeout)
+            stdout, stderr = proc.communicate(timeout=timeout)
         except subprocess.TimeoutExpired:
             os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
-            proc.wait()
+            stdout, stderr = proc.communicate(timeout=1.0)
             timed_out = True
         end = time.perf_counter()
         total = end - start
