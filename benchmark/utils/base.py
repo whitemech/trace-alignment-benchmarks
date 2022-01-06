@@ -60,3 +60,9 @@ def default_output_dir(file_name):
     return Path("results") / (
         Path(file_name).stem + "-" + datetime.datetime.now().isoformat()
     )
+
+
+def get_log_path(log_dir_root: Path, constraints: int, inverted: int) -> Path:
+    constraints_path = f"{constraints}_constraints"
+    inverted_path = f"{inverted}_constraints_inverted"
+    return log_dir_root / constraints_path / inverted_path
