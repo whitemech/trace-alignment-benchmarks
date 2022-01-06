@@ -51,8 +51,9 @@ class Result:
     command: List[str]
     time_compilation: Optional[float]
     avg_time_tool: Optional[float]
-    avg_time_end2end: Optional[float]
-    avg_nb_node_expanded: Optional[int]
+    avg_plan_cost: Optional[float]
+    avg_nb_node_expanded: Optional[float]
+    time_end2end: Optional[float]
     status: Status
 
     @staticmethod
@@ -62,8 +63,9 @@ class Result:
             "status\t"
             "time_compilation\t"
             "avg_time_tool\t"
-            "avg_time_end2end\t"
+            "avg_plan_cost\t"
             "avg_nb_node_expanded\t"
+            "time_end2end\t"
             "command"
         )
 
@@ -74,8 +76,9 @@ class Result:
             status=self.status.value,
             time_compilation=self.time_compilation,
             avg_time_tool=self.avg_time_tool,
-            avg_time_end2end=self.avg_time_end2end,
+            avg_plan_cost=self.avg_plan_cost,
             avg_nb_node_expanded=self.avg_nb_node_expanded,
+            time_end2end=self.time_end2end,
             command=" ".join(self.command),
         )
 
@@ -89,16 +92,17 @@ class Result:
         avg_time_tool_str = (
             f"{self.avg_time_tool:10.6f}" if self.avg_time_tool is not None else "None"
         )
-        avg_time_end2end_str = (
-            f"{self.avg_time_end2end:10.6f}" if self.avg_time_end2end is not None else "None"
+        time_end2end_str = (
+            f"{self.time_end2end:10.6f}" if self.time_end2end is not None else "None"
         )
         return (
             f"{self.name}\t"
             f"{self.status.value}\t"
             f"{time_compilation_str}\t"
             f"{avg_time_tool_str}\t"
-            f"{avg_time_end2end_str}\t"
+            f"{self.avg_plan_cost}\t"
             f"{self.avg_nb_node_expanded}\t"
+            f"{time_end2end_str}\t"
             f"{' '.join(map(str, self.command))}"
         )
 
@@ -109,9 +113,9 @@ class Result:
             f"status={self.status}\n"
             f"time_compilation={self.time_compilation}\n"
             f"avg_time_tool={self.avg_time_tool}\n"
-            f"avg_time_end2end={self.avg_time_end2end}\n"
+            f"avg_plan_cost={self.avg_plan_cost}\n"
             f"avg_nb_node_expanded={self.avg_nb_node_expanded}\n"
-            f"command={' '.join(map(str, self.command))}"
+            f"time_end2end={self.time_end2end}\n"
         )
 
 
