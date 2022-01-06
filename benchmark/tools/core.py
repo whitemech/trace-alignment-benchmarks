@@ -1,3 +1,4 @@
+import logging
 import os
 import re
 import signal
@@ -13,8 +14,6 @@ from benchmark.utils.base import try_to_get_float
 
 
 class ToolID(Enum):
-    FAST_DOWNWARD_BLIND = "fd-blind"
-    FAST_DOWNWARD_HMAX = "fd-hmax"
     TRAL_FD_BLIND = "tral-fd-blind"
     TRAL_FD_HMAX = "tral-fd-hmax"
 
@@ -28,15 +27,22 @@ class Status(Enum):
 
 class SearchAlg(Enum):
     """Search algorithms"""
-
     ASTAR = "astar"
 
 
 class Heuristic(Enum):
     """Heuristics"""
-
     BLIND = "blind"
     HMAX = "hmax"
+
+
+class Encoding(Enum):
+    """Encodings"""
+    GEN = "0"
+    GEN_CONJ = "1"
+    GEN_SHARE = "2"
+    GEN_CONJ_SHARE = "3"
+    STRIPS = "4"
 
 
 @dataclass()  # frozen=True
@@ -136,8 +142,9 @@ class Tool(ABC):
 
     def plan(
         self,
-        domain: Path,
-        problem: Path,
+        log: Path,
+        formulas: Path,
+        encoding: int = 0,
         timeout: float = 5.0,
         cwd: Optional[str] = None,
         name: Optional[str] = None,
@@ -146,20 +153,21 @@ class Tool(ABC):
         """
         Apply the tool to a file.
 
-        :param domain: path to the domain file
-        :param problem: path to the problem file
+        :param log: path to the log file
+        :param formulas: path to the constraints file
+        :param encoding: encoding type
         :param timeout: the timeout in seconds
         :param cwd: the current working directory
         :param name: the experiment name
         :param working_dir: the working dir
         :return: the planning result
         """
-        args = self.get_cli_args(domain, problem, working_dir)
+        args = self.get_cli_args(log, formulas, encoding, working_dir)
         start = time.perf_counter()
         timed_out = False
         print("Running command: ", " ".join(map(str, args)))
         proc = subprocess.Popen(
-            args,
+            list(map(str, args)),
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             cwd=cwd,
@@ -209,8 +217,9 @@ class Tool(ABC):
     @abstractmethod
     def get_cli_args(
         self,
-        domain: Path,
-        problem: Path,
+        log: Path,
+        formulas: Path,
+        encoding: int = 0,
         working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
