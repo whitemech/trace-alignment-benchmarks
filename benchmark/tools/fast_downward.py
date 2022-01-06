@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List, Optional, Union
 
-from planning_with_past import REPO_ROOT
+from bin.utils import REPO_ROOT
 
 from benchmark.tools.core import (Heuristic, Result, SearchAlg, Tool,
                                   extract_from_fd)
@@ -18,7 +18,7 @@ class FastDownwardTool(Tool):
         self,
         binary_path: str,
         search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.FF,
+        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
     ):
         """Initialize the tool."""
         super().__init__(binary_path)
@@ -30,13 +30,9 @@ class FastDownwardTool(Tool):
         self,
         domain: Path,
         problem: Path,
-        formula: Optional[str] = None,
-        mapping: Optional[Path] = None,
         working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
-        assert formula is None, "formula argument not supported"
-        assert mapping is None, "mapping argument not supported"
         cli_args = [
             self.binary_path,
             "-d",
