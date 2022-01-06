@@ -10,7 +10,7 @@ from benchmark.tools.core import (Heuristic, Result, SearchAlg, Status, Tool,
                                   ToolID, extract_from_fd)
 from benchmark.utils.base import try_to_get_float
 
-DEFAULT_BIN_P4P_PATH = (REPO_ROOT / "bin" / "tral-planning").absolute()
+DEFAULT_BIN_TRALFD_PATH = (REPO_ROOT / "bin" / "tral-planning").absolute()
 
 
 class SupportedPlanners:
@@ -28,8 +28,9 @@ class TralTool(Tool, ABC):
 
     def get_cli_args(
         self,
-        domain: Path,
-        problem: Path,
+        log: Path,
+        formulas: Path,
+        encoding: int = 0,
         working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
@@ -38,11 +39,13 @@ class TralTool(Tool, ABC):
             self.binary_path,
             "-t",
             self.planner_id,
-            "--domain",
-            domain,
-            "--problem",
-            problem,
+            "--log",
+            log,
+            "--formulas",
+            formulas,
         ]
+        if encoding:
+            cli_args += ["-e", encoding]
         if working_dir:
             cli_args += ["--working-dir", working_dir]
         return cli_args
@@ -66,12 +69,13 @@ class TralToolFD(TralTool):
 
     def get_cli_args(
         self,
-        domain: Path,
-        problem: Path,
+        log: Path,
+        formulas: Path,
+        encoding: int = 0,
         working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
-        cli_args = super().get_cli_args(domain, problem, working_dir)
+        cli_args = super().get_cli_args(log, formulas, encoding, working_dir)
         cli_args += ["--algorithm", self.search.value]
         cli_args += ["--heuristic", self.heuristic.value]
         return cli_args
