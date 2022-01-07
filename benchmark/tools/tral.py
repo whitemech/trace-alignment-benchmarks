@@ -7,7 +7,7 @@ from typing import List, Optional, Union
 from bin.utils import REPO_ROOT
 
 from benchmark.tools.core import (Heuristic, Result, SearchAlg, Status, Tool,
-                                  ToolID, extract_from_fd)
+                                  ToolID, extract_from_tral)
 from benchmark.utils.base import try_to_get_float
 
 DEFAULT_BIN_TRALFD_PATH = (REPO_ROOT / "bin" / "tral-planning").absolute()
@@ -82,4 +82,4 @@ class TralToolFD(TralTool):
 
     def collect_statistics(self, output: str) -> Result:
         """Collect statistics."""
-        return extract_from_fd(output)
+        return extract_from_tral(output)

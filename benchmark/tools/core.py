@@ -2,6 +2,7 @@ import logging
 import os
 import re
 import signal
+import statistics
 import subprocess
 import time
 from abc import ABC, abstractmethod
@@ -10,7 +11,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Type, Union
 
-from benchmark.utils.base import try_to_get_float
+from benchmark.utils.base import try_to_get_float, try_to_get_all_float
 
 
 class ToolID(Enum):
@@ -48,13 +49,13 @@ class Encoding(Enum):
 @dataclass()  # frozen=True
 class Result:
     name: str
-    command: List[str]
+    status: Status
     time_compilation: Optional[float]
     avg_time_tool: Optional[float]
     avg_plan_cost: Optional[float]
     avg_nb_node_expanded: Optional[float]
     time_end2end: Optional[float]
-    status: Status
+    command: List[str]
 
     @staticmethod
     def headers() -> str:
@@ -316,4 +317,42 @@ def extract_from_fd(output):
 
     return Result(
         "", [], compilation_time, tool_time, plan_cost, nb_nodes_expansions, end2end_time, status
+    )
+
+
+def extract_from_tral(output):
+    compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
+    if compilation_time != -1:
+        compilation_time = compilation_time / 1000
+
+    tool_times = try_to_get_all_float("Total time: (.*)s", output)
+    avg_tool_time = statistics.mean(tool_times)
+    plan_costs = try_to_get_all_float("Plan cost: (.*)", output)
+    avg_plan_cost = statistics.mean(plan_costs)
+    nb_node_exp = try_to_get_all_float("Expanded ([0-9]+) state\(s\).", output)
+    avg_nb_node_exp = statistics.mean(nb_node_exp)
+
+    total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
+
+    timed_out_match = re.search("Timed out.", output)
+    solution_found_match = re.search("search exit code: 0", output)
+    no_solution_match = re.search("search exit code: 12", output)
+    if solution_found_match is not None:
+        status = Status.SUCCESS
+    elif no_solution_match is not None:
+        status = Status.FAILURE
+    elif timed_out_match is not None:
+        status = Status.TIMEOUT
+    else:
+        status = Status.ERROR
+
+    return Result(
+        name="",
+        status=status,
+        time_compilation=compilation_time,
+        avg_time_tool=avg_tool_time,
+        avg_plan_cost=avg_plan_cost,
+        avg_nb_node_expanded=avg_nb_node_exp,
+        time_end2end=total_time,
+        command=[],
     )
