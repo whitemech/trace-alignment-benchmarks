@@ -12,13 +12,15 @@ from benchmark.utils.base import (REPO_ROOT, TSV_FILENAME, ExperimentType,
                                   configure_logging, default_output_dir, get_log_path, )
 
 INVERTED = [
-    1,
+    3,
+    4,
+    6
 ]
 LOG_LENGTHS = [
     "1-50",
-    # "51-100",
-    # "101-150",
-    # "151-200"
+    "51-100",
+    "101-150",
+    "151-200"
 ]
 
 
