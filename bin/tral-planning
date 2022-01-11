@@ -59,8 +59,6 @@ if __name__ == '__main__':
     elapsed_time_compilation = (end_compilation.timestamp() - start.timestamp())
     print(f"Compilation time: {elapsed_time_compilation} seconds")
 
-    start_tool = datetime.datetime.now()
-
     if args.encoding < 4:
         for filepath in glob.iglob(f"{output_dir}/p*.pddl"):
             cli_args = []
@@ -73,12 +71,12 @@ if __name__ == '__main__':
                             "--working-dir", str(working_dir)]
             else:
                 raise ValueError
+            start_tool = datetime.datetime.now()
             launch(cli_args)
             end_tool = datetime.datetime.now()
     else:
         assert args.encoding == 4, "Encoding not supported!"
         for i in range(0, len(os.listdir(output_dir)) // 2):
-            start_tool = datetime.datetime.now()
             cli_args = []
             if args.planner == "fd":
                 cli_args = [str(FD_WRAPPER_PATH),
@@ -89,6 +87,7 @@ if __name__ == '__main__':
                             "--working-dir", str(working_dir)]
             else:
                 raise ValueError
+            start_tool = datetime.datetime.now()
             launch(cli_args)
             end_tool = datetime.datetime.now()
     elapsed = end_tool - start
