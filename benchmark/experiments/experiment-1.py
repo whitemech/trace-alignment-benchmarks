@@ -11,12 +11,23 @@ from benchmark.tools.core import Status, ToolID, save_data
 from benchmark.utils.base import (REPO_ROOT, TSV_FILENAME, ExperimentType,
                                   configure_logging, default_output_dir, get_log_path, )
 
+ENCODING = [
+    # 0,
+    # 1,
+    # 2,
+    3,
+    4
+]
+
 INVERTED = [
-    1,
+    # 1,
+    3,
+    # 4,
+    # 6
 ]
 LOG_LENGTHS = [
     "1-50",
-    # "51-100",
+    "51-100",
     # "101-150",
     # "151-200"
 ]
@@ -51,34 +62,37 @@ def run_experiments(
         data = []
         tool_dir = output_dir / tool
         tool_dir.mkdir()
-        try:
-            logging.info("=" * 100)
-            for inverted_constraint in INVERTED:
-                inverted_dir = tool_dir / f"{inverted_constraint}_inverted"
-                inverted_dir.mkdir()
-                logging.info(f"Constraints inverted: {inverted_constraint}")
-                original_log_path = get_log_path(log_dataset_dir_root, constraints, inverted_constraint)
-                for log_length in LOG_LENGTHS:
-                    log_dir = inverted_dir / f"log-{log_length}.xes"
-                    logging.info(f"Processing log: log-{log_length}.xes")
-                    logging.info(f"Time: {datetime.datetime.now()}")
-                    result = run_planner(
-                        f"log-{log_length}",
-                        original_log_path / f"log-{log_length}.xes",
-                        constraints_path,
-                        3,
-                        timeout,
-                        tool,
-                        {},
-                        str(inverted_dir / log_dir.stem),
-                    )
-                    logging.info(result.to_rows())
-                    data.append(result)
-                    if stop_on_timeout and result.status in {Status.ERROR, Status.TIMEOUT}:
-                        logging.info(f"Stop on timeout, status={result.status}")
-                        break
-        finally:
-            save_data(data, tool_dir / TSV_FILENAME)
+        for encoding in ENCODING:
+            encoding_dir = tool_dir / f"encoding-{encoding}"
+            encoding_dir.mkdir()
+            try:
+                logging.info("=" * 100)
+                for inverted_constraint in INVERTED:
+                    inverted_dir = encoding_dir / f"{inverted_constraint}_inverted"
+                    inverted_dir.mkdir()
+                    logging.info(f"Constraints inverted: {inverted_constraint}")
+                    original_log_path = get_log_path(log_dataset_dir_root, constraints, inverted_constraint)
+                    for log_length in LOG_LENGTHS:
+                        log_dir = inverted_dir / f"log-{log_length}.xes"
+                        logging.info(f"Processing log: log-{log_length}.xes")
+                        logging.info(f"Time: {datetime.datetime.now()}")
+                        result = run_planner(
+                            f"log-{log_length}",
+                            original_log_path / f"log-{log_length}.xes",
+                            constraints_path,
+                            encoding,
+                            timeout,
+                            tool,
+                            {},
+                            str(inverted_dir / log_dir.stem),
+                        )
+                        logging.info(result.to_rows())
+                        data.append(result)
+                        if stop_on_timeout and result.status in {Status.ERROR, Status.TIMEOUT}:
+                            logging.info(f"Stop on timeout, status={result.status}")
+                            break
+            finally:
+                save_data(data, tool_dir / TSV_FILENAME)
 
 
 @click.command()

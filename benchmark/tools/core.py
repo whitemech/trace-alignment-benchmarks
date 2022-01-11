@@ -2,6 +2,7 @@ import logging
 import os
 import re
 import signal
+import statistics
 import subprocess
 import time
 from abc import ABC, abstractmethod
@@ -10,7 +11,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Type, Union
 
-from benchmark.utils.base import try_to_get_float
+from benchmark.utils.base import try_to_get_float, try_to_get_all_float
 
 
 class ToolID(Enum):
@@ -48,12 +49,13 @@ class Encoding(Enum):
 @dataclass()  # frozen=True
 class Result:
     name: str
-    command: List[str]
+    status: Status
     time_compilation: Optional[float]
     avg_time_tool: Optional[float]
-    avg_time_end2end: Optional[float]
-    avg_nb_node_expanded: Optional[int]
-    status: Status
+    avg_plan_cost: Optional[float]
+    avg_nb_node_expanded: Optional[float]
+    time_end2end: Optional[float]
+    command: List[str]
 
     @staticmethod
     def headers() -> str:
@@ -62,8 +64,9 @@ class Result:
             "status\t"
             "time_compilation\t"
             "avg_time_tool\t"
-            "avg_time_end2end\t"
+            "avg_plan_cost\t"
             "avg_nb_node_expanded\t"
+            "time_end2end\t"
             "command"
         )
 
@@ -74,8 +77,9 @@ class Result:
             status=self.status.value,
             time_compilation=self.time_compilation,
             avg_time_tool=self.avg_time_tool,
-            avg_time_end2end=self.avg_time_end2end,
+            avg_plan_cost=self.avg_plan_cost,
             avg_nb_node_expanded=self.avg_nb_node_expanded,
+            time_end2end=self.time_end2end,
             command=" ".join(self.command),
         )
 
@@ -89,16 +93,17 @@ class Result:
         avg_time_tool_str = (
             f"{self.avg_time_tool:10.6f}" if self.avg_time_tool is not None else "None"
         )
-        avg_time_end2end_str = (
-            f"{self.avg_time_end2end:10.6f}" if self.avg_time_end2end is not None else "None"
+        time_end2end_str = (
+            f"{self.time_end2end:10.6f}" if self.time_end2end is not None else "None"
         )
         return (
             f"{self.name}\t"
             f"{self.status.value}\t"
             f"{time_compilation_str}\t"
             f"{avg_time_tool_str}\t"
-            f"{avg_time_end2end_str}\t"
+            f"{self.avg_plan_cost}\t"
             f"{self.avg_nb_node_expanded}\t"
+            f"{time_end2end_str}\t"
             f"{' '.join(map(str, self.command))}"
         )
 
@@ -109,9 +114,9 @@ class Result:
             f"status={self.status}\n"
             f"time_compilation={self.time_compilation}\n"
             f"avg_time_tool={self.avg_time_tool}\n"
-            f"avg_time_end2end={self.avg_time_end2end}\n"
+            f"avg_plan_cost={self.avg_plan_cost}\n"
             f"avg_nb_node_expanded={self.avg_nb_node_expanded}\n"
-            f"command={' '.join(map(str, self.command))}"
+            f"time_end2end={self.time_end2end}\n"
         )
 
 
@@ -174,10 +179,10 @@ class Tool(ABC):
             preexec_fn=os.setsid,
         )
         try:
-            proc.wait(timeout=timeout)
+            stdout, stderr = proc.communicate(timeout=timeout)
         except subprocess.TimeoutExpired:
             os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
-            proc.wait()
+            stdout, stderr = proc.communicate(timeout=1.0)
             timed_out = True
         end = time.perf_counter()
         total = end - start
@@ -194,8 +199,8 @@ class Tool(ABC):
         result.command = args
 
         # in case time end2end not set by the tool, set from command
-        if result.avg_time_end2end is None:
-            result.avg_time_end2end = total
+        if result.time_end2end is None:
+            result.time_end2end = total
 
         if timed_out:
             result.status = Status.TIMEOUT
@@ -298,6 +303,12 @@ def extract_from_fd(output):
     else:
         status = Status.ERROR
 
+    plan_cost_match = re.search("Plan cost: ([0-9]+)", output)
+    if plan_cost_match:
+        plan_cost = int(plan_cost_match.group(1))
+    else:
+        plan_cost = None
+
     nb_nodes_expansion_match = re.search("Expanded ([0-9]+) state\(s\).", output)
     if nb_nodes_expansion_match:
         nb_nodes_expansions = int(nb_nodes_expansion_match.group(1))
@@ -305,5 +316,43 @@ def extract_from_fd(output):
         nb_nodes_expansions = None
 
     return Result(
-        "", [], compilation_time, tool_time, end2end_time, nb_nodes_expansions, status
+        "", [], compilation_time, tool_time, plan_cost, nb_nodes_expansions, end2end_time, status
+    )
+
+
+def extract_from_tral(output):
+    compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
+    if compilation_time != -1:
+        compilation_time = compilation_time / 1000
+
+    tool_times = try_to_get_all_float("Total time: (.*)s", output)
+    avg_tool_time = statistics.mean(tool_times)
+    plan_costs = try_to_get_all_float("Plan cost: (.*)", output)
+    avg_plan_cost = statistics.mean(plan_costs)
+    nb_node_exp = try_to_get_all_float("Expanded ([0-9]+) state\(s\).", output)
+    avg_nb_node_exp = statistics.mean(nb_node_exp)
+
+    total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
+
+    timed_out_match = re.search("Timed out.", output)
+    solution_found_match = re.search("search exit code: 0", output)
+    no_solution_match = re.search("search exit code: 12", output)
+    if solution_found_match is not None:
+        status = Status.SUCCESS
+    elif no_solution_match is not None:
+        status = Status.FAILURE
+    elif timed_out_match is not None:
+        status = Status.TIMEOUT
+    else:
+        status = Status.ERROR
+
+    return Result(
+        name="",
+        status=status,
+        time_compilation=compilation_time,
+        avg_time_tool=avg_tool_time,
+        avg_plan_cost=avg_plan_cost,
+        avg_nb_node_expanded=avg_nb_node_exp,
+        time_end2end=total_time,
+        command=[],
     )

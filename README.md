@@ -45,24 +45,24 @@ to build the required dependencies (in particular planners).
 The main entrypoint for our planner is `./bin/tral-wrapper`. Usage: 
 
 ```
-./bin/tral-planner
-    --domain PDDL_DOMAIN_FILEPATH
-    --problem PDDL_PROBLEM_FILEPATH
-    --map MAP_FILEPATH
-    --formula PLTL_FORMULA
+./bin/tral-planning
+    --log LOG_FILEPATH
+    --formulas CONSTRAINTS_FILEPATH
+    -t TOOL-ID
+    --encoding ENCODING
     [--output-dir OUTPUT_DIR]
 ```
 
 E.g.:
 
 ```
-./bin/pltlf-planner \
-    --domain examples/pddl/fond-domain.pddl \
-    --problem examples/pddl/fond-p-0.pddl \
-    --map examples/pddl/fond-p-0.map \
-    --formula "vehicleat_l22 & O(vehicleat_l31)" \
-    --output-dir output \
-    --force
+./bin/tral-planning \
+    -t fd \ 
+    --log log-1-50.xes \
+    --formulas 10constraints.txt \
+    --encoding 3 \
+    --algorithm astar \
+    --heuristic blind
 ```
 
 ## License
