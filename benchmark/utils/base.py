@@ -29,10 +29,17 @@ def to_seconds(millis: float) -> float:
 
 
 def try_to_get_float(pattern: str, text: str, default=-1.0) -> float:
-    """Try to extract a float number from text."""
+    """Try to extract a float number from text given a pattern."""
     number_match = re.search(pattern, text)
     number = float(number_match.group(1)) if number_match else default
     return number
+
+
+def try_to_get_all_float(pattern: str, text: str, default=-1.0) -> List[float]:
+    """Try to extract all float numbers from text given a pattern."""
+    number_match_list = re.findall(pattern, text)
+    number_list = [float(number) if number.replace(".", "", 1).isdigit() else default for number in number_match_list]
+    return number_list
 
 
 def get_tools(benchmark_dir: Path):
