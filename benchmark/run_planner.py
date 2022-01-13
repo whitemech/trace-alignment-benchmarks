@@ -25,7 +25,6 @@ def run_planner(
     name: str,
     log: Path,
     formulas: Path,
-    encoding: int,
     timeout: float,
     tool_id: str,
     config: Dict,
@@ -35,7 +34,6 @@ def run_planner(
     logging.debug(f"name={name}")
     logging.debug(f"log={log}")
     logging.debug(f"formulas={formulas}")
-    logging.debug(f"encoding={str(encoding)}")
     logging.debug(f"timeout={timeout}")
     logging.debug(f"tool={tool_id}")
     logging.debug(f"config={config}")
@@ -45,7 +43,6 @@ def run_planner(
         result = tool.plan(
             log=log,
             formulas=formulas,
-            encoding=encoding,
             timeout=timeout,
             name=name,
             working_dir=working_dir,
@@ -71,7 +68,6 @@ def run_planner(
     required=True,
     type=click.Path(exists=True, dir_okay=False, readable=True),
 )
-@click.option("--encoding", type=int, default=DEFAULT_ENCODING)
 @click.option("--timeout", type=FloatRange(min=0.0), default=DEFAULT_TIMEOUT)
 @click.option(
     "--tool-id",
@@ -84,7 +80,6 @@ def main(
     name,
     log,
     formulas,
-    encoding,
     timeout,
     tool_id,
     config,
@@ -98,7 +93,6 @@ def main(
         name,
         log,
         formulas,
-        encoding,
         timeout,
         tool_id,
         json_config,
