@@ -8,7 +8,7 @@ This folder contains scripts and modules to run planning benchmark.
 
 ## Examples
 
-You may need `export PYTHONPATH=.` before running the commands.
+You may need `export PYTHONPATH=$PYTHONPATH:$(pwd)` before running the commands.
 
 - Run `fast-downward` planner  
 
@@ -16,31 +16,19 @@ You may need `export PYTHONPATH=.` before running the commands.
 ./benchmark/run_planner.py --tool-id fast-downward --domain examples/pddl/domain.pddl --problem examples/pddl/p-0.pddl
 ```
 
-- Run `mynd` planner  
+- Run `trace-alignment` + `fast-downward` planner  
 
 ```
-./benchmark/run_planner.py --tool-id mynd --domain examples/pddl/domain.pddl --problem examples/pddl/p-0.pddl
+./benchmark/run_planner.py --tool-id tral-fd --log examples/logs/log.xes -- examples/pddl/p-0.pddl --formula-str "on_c_b & O(on_b_a)"
 ```
 
-- Run `fond4ltlfpltlf` + `mynd` planner  
-
-```
-./benchmark/run_planner.py --tool-id f4lp-mynd --domain examples/pddl/domain.pddl --problem examples/pddl/p-0.pddl --formula-str "on_c_b & O(on_b_a)"
-```
-
-- Run `plan4past` + `mynd` planner  
-
-```
-./benchmark/run_planner.py --tool-id p4p-mynd --domain examples/pddl/domain.pddl --problem examples/pddl/p-0.pddl --formula-str "on_c_b & O(on_b_a)"
-```
-
-## Blocksworld 1a
+## 10 Constraints
 
 To run the experiments:
 
-Nondeterministic
+hmax
 ```
-python benchmark/experiments/experiment-1.py --timeout 300.0 --min-param 3 --max-param 20 --dataset-name blocksworld --experiment-type a -t 'f4lp-mynd-sc-ff' -t 'p4p-mynd-sc-ff' -t 'lf2f-mynd-sc-ff' --stop-on-timeout --output-dir output 
+python ./benchmark/experiments/experiment-1.py --dataset-name prova --constraints 10 -t 'tral-fd-hmax' --output-dir ignore/prova --timeout 150 
 ```
 
 Deterministic:
