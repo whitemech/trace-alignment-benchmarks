@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 matplotlib = "*"
 click = "*"
+pandas = "*"
 
 [dev-packages]
 ipython = "*"
