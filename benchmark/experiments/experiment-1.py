@@ -8,29 +8,16 @@ import click
 
 from benchmark.run_planner import run_planner
 from benchmark.tools.core import Status, ToolID, save_data
-from benchmark.utils.base import (REPO_ROOT, TSV_FILENAME, ExperimentType,
-                                  configure_logging, default_output_dir, get_log_path, )
-
-
-INVERTED = [
-    1,
-    # 3,
-    # 4,
-    # 6
-]
-LOG_LENGTHS = [
-    "1-50",
-    "51-100",
-    # "101-150",
-    # "151-200"
-]
+from benchmark.utils.base import (REPO_ROOT, TSV_FILENAME, configure_logging, default_output_dir, get_log_path, )
+from benchmark.tools.core import InvertedConstraints, LogLengths
 
 
 def run_experiments(
-    dataset_name: str,
     log_dir: str,
     models_dir: str,
     constraints: int,
+    inverted: List[int],
+    lengths: List[str],
     output_dir,
     timeout,
     tools: List[str],
@@ -57,12 +44,12 @@ def run_experiments(
         tool_dir.mkdir()
         try:
             logging.info("=" * 100)
-            for inverted_constraint in INVERTED:
+            for inverted_constraint in inverted:
                 inverted_dir = tool_dir / f"{inverted_constraint}_inverted"
                 inverted_dir.mkdir()
                 logging.info(f"Constraints inverted: {inverted_constraint}")
                 original_log_path = get_log_path(log_dataset_dir_root, constraints, inverted_constraint)
-                for log_length in LOG_LENGTHS:
+                for log_length in lengths:
                     log_dir = inverted_dir / f"log-{log_length}.xes"
                     logging.info(f"Processing log: log-{log_length}.xes")
                     logging.info(f"Time: {datetime.datetime.now()}")
@@ -85,7 +72,6 @@ def run_experiments(
 
 
 @click.command()
-@click.option("--dataset-name", type=str)
 @click.option(
     "--log-dir",
     type=click.Path(exists=True, file_okay=False),
@@ -97,6 +83,19 @@ def run_experiments(
     default=str(REPO_ROOT / "data" / "models" / "synthetic"),
 )
 @click.option("--constraints", type=int)
+@click.option("--inverted", "-i", type=int, multiple=True, default=[
+    InvertedConstraints.INV1,
+    InvertedConstraints.INV3,
+    InvertedConstraints.INV4,
+    InvertedConstraints.INV6,
+])
+@click.option("--lengths", "-l", type=str, multiple=True, default=[
+    LogLengths.LEN1,
+    LogLengths.LEN2,
+    LogLengths.LEN3,
+    LogLengths.LEN4,
+
+])
 @click.option(
     "--output-dir", type=click.Path(exists=False), default=default_output_dir(__file__)
 )
@@ -112,23 +111,24 @@ def run_experiments(
         ToolID.TRAL_STRIPS_FD_HMAX.value,
     ],
 )
-# @click.option("--experiment-type", type=click.Choice(["a", "b"], case_sensitive=False))
 @click.option("--stop-on-timeout", type=bool, is_flag=True, default=False)
 def main(
-    dataset_name: str,
     log_dir: str,
     models_dir: str,
     constraints: int,
+    inverted: List[int],
+    lengths: List[str],
     output_dir: str,
     timeout: float,
     tool: List[str],
     stop_on_timeout: bool,
 ):
     run_experiments(
-        dataset_name,
         log_dir,
         models_dir,
         constraints,
+        inverted,
+        lengths,
         output_dir,
         timeout,
         tool,
