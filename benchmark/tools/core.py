@@ -1,4 +1,3 @@
-import logging
 import os
 import re
 import signal
@@ -12,6 +11,20 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Type, Union
 
 from benchmark.utils.base import try_to_get_float, try_to_get_all_float
+
+
+class InvertedConstraints(Enum):
+    INV1 = 1
+    INV3 = 3
+    INV4 = 4
+    INV6 = 6
+
+
+class LogLengths(Enum):
+    LEN1 = "1-50"
+    LEN2 = "51-100"
+    LEN3 = "101-150"
+    LEN4 = "151-200"
 
 
 class ToolID(Enum):
