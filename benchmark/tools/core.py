@@ -1,4 +1,3 @@
-import logging
 import os
 import re
 import signal
@@ -14,9 +13,25 @@ from typing import Any, Dict, List, Optional, Type, Union
 from benchmark.utils.base import try_to_get_float, try_to_get_all_float
 
 
+class InvertedConstraints(Enum):
+    INV1 = 1
+    INV3 = 3
+    INV4 = 4
+    INV6 = 6
+
+
+class LogLengths(Enum):
+    LEN1 = "1-50"
+    LEN2 = "51-100"
+    LEN3 = "101-150"
+    LEN4 = "151-200"
+
+
 class ToolID(Enum):
-    TRAL_FD_BLIND = "tral-fd-blind"
-    TRAL_FD_HMAX = "tral-fd-hmax"
+    TRAL_GCS_FD_BLIND = "tral-gcs-fd-blind"
+    TRAL_GCS_FD_HMAX = "tral-gcs-fd-hmax"
+    TRAL_STRIPS_FD_BLIND = "tral-strips-fd-blind"
+    TRAL_STRIPS_FD_HMAX = "tral-strips-fd-hmax"
 
 
 class Status(Enum):
@@ -39,11 +54,11 @@ class Heuristic(Enum):
 
 class Encoding(Enum):
     """Encodings"""
-    GEN = "0"
-    GEN_CONJ = "1"
-    GEN_SHARE = "2"
-    GEN_CONJ_SHARE = "3"
-    STRIPS = "4"
+    GEN = 0
+    GEN_CONJ = 1
+    GEN_SHARE = 2
+    GEN_CONJ_SHARE = 3
+    STRIPS = 4
 
 
 @dataclass()  # frozen=True
@@ -149,7 +164,6 @@ class Tool(ABC):
         self,
         log: Path,
         formulas: Path,
-        encoding: int = 0,
         timeout: float = 5.0,
         cwd: Optional[str] = None,
         name: Optional[str] = None,
@@ -160,14 +174,13 @@ class Tool(ABC):
 
         :param log: path to the log file
         :param formulas: path to the constraints file
-        :param encoding: encoding type
         :param timeout: the timeout in seconds
         :param cwd: the current working directory
         :param name: the experiment name
         :param working_dir: the working dir
         :return: the planning result
         """
-        args = self.get_cli_args(log, formulas, encoding, working_dir)
+        args = self.get_cli_args(log, formulas, working_dir)
         start = time.perf_counter()
         timed_out = False
         print("Running command: ", " ".join(map(str, args)))
@@ -224,7 +237,6 @@ class Tool(ABC):
         self,
         log: Path,
         formulas: Path,
-        encoding: int = 0,
         working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""

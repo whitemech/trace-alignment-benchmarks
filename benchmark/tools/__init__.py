@@ -1,21 +1,39 @@
-from benchmark.tools.core import Heuristic, SearchAlg, ToolID, ToolRegistry
-from benchmark.tools.tral import DEFAULT_BIN_TRALFD_PATH, TralToolFD
+from benchmark.tools.core import Heuristic, SearchAlg, ToolID, ToolRegistry, Encoding
+from benchmark.tools.tral import DEFAULT_BIN_TRALFD_PATH, TralToolFDGEN, TralToolFDSTRIPS
 
 tool_registry = ToolRegistry()
 
 
-# TraceAlignment + search alg + heuristics
+# TraceAlignment + search alg + heuristics + 2 encodings
 tool_registry.register(
-    ToolID.TRAL_FD_BLIND,
-    tool_cls=TralToolFD,
+    ToolID.TRAL_GCS_FD_BLIND,
+    tool_cls=TralToolFDGEN,
     binary_path=DEFAULT_BIN_TRALFD_PATH,
     search=SearchAlg.ASTAR,
     heuristic=Heuristic.BLIND,
+    encoding=Encoding.GEN_CONJ_SHARE,
 )
 tool_registry.register(
-    ToolID.TRAL_FD_HMAX,
-    tool_cls=TralToolFD,
+    ToolID.TRAL_GCS_FD_HMAX,
+    tool_cls=TralToolFDGEN,
     binary_path=DEFAULT_BIN_TRALFD_PATH,
     search=SearchAlg.ASTAR,
     heuristic=Heuristic.HMAX,
+    encoding=Encoding.GEN_CONJ_SHARE,
+)
+tool_registry.register(
+    ToolID.TRAL_STRIPS_FD_BLIND,
+    tool_cls=TralToolFDSTRIPS,
+    binary_path=DEFAULT_BIN_TRALFD_PATH,
+    search=SearchAlg.ASTAR,
+    heuristic=Heuristic.BLIND,
+    encoding=Encoding.STRIPS,
+)
+tool_registry.register(
+    ToolID.TRAL_STRIPS_FD_HMAX,
+    tool_cls=TralToolFDSTRIPS,
+    binary_path=DEFAULT_BIN_TRALFD_PATH,
+    search=SearchAlg.ASTAR,
+    heuristic=Heuristic.HMAX,
+    encoding=Encoding.STRIPS,
 )
