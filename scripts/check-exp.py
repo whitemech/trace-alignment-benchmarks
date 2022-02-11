@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
 import argparse
+import operator
+import os
 import re
 import sys
+from pathlib import Path
+from typing import List
 
-from bin.utils import is_valid_file
+
+def is_valid_file(arg):
+    """Argparse validator for files to check for their existence."""
+    if not os.path.exists(arg):
+        raise FileNotFoundError("The file %s does not exist!" % arg)
+    return Path(arg)
 
 
 def parse_args():
     """Parse command-line aurguments."""
     parser = argparse.ArgumentParser("check-experiment", description="Check experiment consistency.")
-    parser.add_argument('--out1', dest='out1_path', type=is_valid_file, required=True)
-    parser.add_argument('--out2', dest='out2_path', type=is_valid_file, required=True)
+    parser.add_argument('--exp', dest='exp_path', type=is_valid_file, required=True)
     return parser.parse_args()
 
 
@@ -22,39 +30,68 @@ def get_value(pattern, text):
     return re.search(pattern, text).group(1)
 
 
+def get_paths(directory: Path) -> List[Path]:
+    return list(filter(operator.methodcaller("is_dir"), directory.iterdir()))
+
+
+def check(d: dict) -> bool:
+    return all(d[e] == list(d.values())[0] for e in d)
+
+
+def find_differences(d1: dict, d2: dict) -> set:
+    return {key for key in d1.keys() & d2 if d1[key] != d2[key]}
+
+
+"""
+{
+   "gcs":[
+      {
+         "3": {
+               "1-50":{
+                  "1":0,
+                  "2":1
+               },
+               "51-100":{
+                  "1":0,
+                  "2":1
+               }
+         }
+      }
+   ]
+}
+"""
+
+
 if __name__ == '__main__':
     args = parse_args()
-    OUT1 = args.out1_path
-    OUT2 = args.out2_path
+    EXP_PATH = args.exp_path
 
-    with open(OUT1, "r") as out1, open(OUT2, "r") as out2:
-        t1 = out1.read()
-        t2 = out2.read()
-        calls_t1 = get_calls(t1)
-        calls_t2 = get_calls(t2)
-        out1.close()
-        out2.close()
+    tool_dirs = get_paths(EXP_PATH)
 
-    assert len(calls_t1) == len(calls_t2), "Experiments have different length."
+    data = {}
+    for tool in tool_dirs:
+        tool_data = []
+        inverted_dict = {}
+        inverted_dirs = get_paths(tool)
+        for inverted in inverted_dirs:
+            log_data = {}
+            log_dirs = get_paths(inverted)
+            for log in log_dirs:
+                map = {}
+                with open(f"{log}/stdout.txt", "r") as out:
+                    calls = get_calls(out.read())
+                    out.close()
+                for c in calls:
+                    id = get_value("output/p-(\d+).pddl --sas-file", c)
+                    cost = get_value("Plan cost: (.*)", c)
+                    map[id] = cost
+                log_data[log.stem] = map
+            inverted_dict[inverted.stem] = log_data
+        tool_data.append(inverted_dict)
+        data[tool.stem] = tool_data
 
-    map1 = dict()
-    map2 = dict()
-    for c1, c2 in zip(calls_t1, calls_t2):
-        id1 = get_value("output/p-(\d+).pddl --sas-file", c1)
-        id2 = get_value("output/p-(\d+).pddl --sas-file", c2)
-        cost1 = get_value("Plan cost: (.*)", c1)
-        cost2 = get_value("Plan cost: (.*)", c2)
-        map1[id1] = cost1
-        map2[id2] = cost2
-
-    assert len(map1) == len(map2), "Maps have different length."
-
-    shared_items = {k: map1[k] for k in map1 if k in map2 and map1[k] == map2[k]}
-    if len(shared_items) == len(calls_t1):
+    if check(data):
         print("Check OK")
         sys.exit(0)
     else:
-        for i in range(0, len(calls_t1)):
-            if str(i) not in shared_items.keys():
-                print(f"Issue found with problem {i}\n")
-        sys.exit(1)
+        print("KO!")
