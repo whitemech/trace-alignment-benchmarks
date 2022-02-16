@@ -28,6 +28,12 @@ class LogLengths(Enum):
 
 
 class ToolID(Enum):
+    TRAL_G_FD_BLIND = "tral-g-fd-blind"
+    TRAL_G_FD_HMAX = "tral-g-fd-hmax"
+    TRAL_GC_FD_BLIND = "tral-gc-fd-blind"
+    TRAL_GC_FD_HMAX = "tral-gc-fd-hmax"
+    TRAL_GS_FD_BLIND = "tral-gs-fd-blind"
+    TRAL_GS_FD_HMAX = "tral-gs-fd-hmax"
     TRAL_GCS_FD_BLIND = "tral-gcs-fd-blind"
     TRAL_GCS_FD_HMAX = "tral-gcs-fd-hmax"
     TRAL_STRIPS_FD_BLIND = "tral-strips-fd-blind"
