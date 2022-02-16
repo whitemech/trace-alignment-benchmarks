@@ -105,6 +105,12 @@ def run_experiments(
     "-t",
     multiple=True,
     default=[
+        ToolID.TRAL_G_FD_BLIND.value,
+        ToolID.TRAL_G_FD_HMAX.value,
+        ToolID.TRAL_GC_FD_BLIND.value,
+        ToolID.TRAL_GC_FD_HMAX.value,
+        ToolID.TRAL_GS_FD_BLIND.value,
+        ToolID.TRAL_GS_FD_HMAX.value,
         ToolID.TRAL_GCS_FD_BLIND.value,
         ToolID.TRAL_GCS_FD_HMAX.value,
         ToolID.TRAL_STRIPS_FD_BLIND.value,
