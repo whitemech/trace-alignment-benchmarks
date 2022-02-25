@@ -3,6 +3,9 @@ LABEL version="0.0.1"
 LABEL authors="Francesco Fuggitti <fuggitti@diag.uniroma1.it>"
 LABEL description="A Docker image to run Trace Alignment experiments."
 
+ARG GITHUB_USER="francescofuggitti"
+ARG TOKEN
+
 USER root
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -90,7 +93,8 @@ WORKDIR /home/default/work
 RUN git clone https://github.com/aibasel/downward.git ./third_party/downward &&\
     cd third_party/downward && ./build.py && cd ../../
 # clone trace-alignment
-RUN git clone https://github.com/whitemech/trace-alignment.git ./third_party/trace-alignment &&\
+COPY .github_access_token ./.github_access_token
+RUN git clone https://${GITHUB_USER}:$(cat .github_access_token)@github.com/whitemech/trace-alignment.git ./third_party/trace-alignment &&\
     cd third_party/trace-alignment && ./scripts/_ci-install-dependencies-ubuntu.sh &&\
     ./gradlew build && cd ../../
 
@@ -102,3 +106,9 @@ COPY bin ./bin
 COPY data ./data
 COPY scripts ./scripts
 COPY third_party/app-0.0.1.jar third_party/app-0.0.1.jar
+COPY Pipfile Pipfile
+COPY Pipfile.lock Pipfile.lock
+
+RUN pipenv install --dev
+
+CMD ["/bin/bash"]
