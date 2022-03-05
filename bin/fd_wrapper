@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 import argparse
-import contextlib
-import os
 import tempfile
 from pathlib import Path
-from typing import Generator
 
 from bin.utils import FD_DRIVER, FD_DIR, launch, ALGORITHMS, HEURISTICS
 
 
 def plan(domain_path, problem_path, algorithm, heuristic, working_dir):
-    """Planning for temporally extended goals (LTLf or PLTLf)."""
+    """Optimal Planning."""
     domain_path = str(Path(domain_path).absolute())
     problem_path = str(Path(problem_path).absolute())
     if working_dir:
@@ -37,7 +34,7 @@ if __name__ == '__main__':
     parser.add_argument('-d', dest='domain_path', type=Path, required=True)
     parser.add_argument('-p', dest='problem_path', type=Path, required=True)
     parser.add_argument('-a', "--algorithm", dest='algorithm', type=str, choices=ALGORITHMS, default="astar")
-    parser.add_argument('--heuristic', dest='heuristic', type=str, choices=HEURISTICS, default="hmax")
+    parser.add_argument('--heuristic', dest='heuristic', type=str, choices=HEURISTICS, default="blind")
     parser.add_argument('--working-dir', dest='working_dir', type=str, default=None)
     args = parser.parse_args()
 
