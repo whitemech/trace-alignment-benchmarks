@@ -25,7 +25,7 @@ def parse_args():
     parser.add_argument("--output-dir", type=str, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument('-t', dest='planner', type=str, choices=SUPPORTED_PLANNERS, required=True)
     parser.add_argument('-a', "--algorithm", dest='algorithm', type=str, choices=ALGORITHMS, default="astar")
-    parser.add_argument('--heuristic', dest='heuristic', type=str, choices=HEURISTICS, default="hmax")
+    parser.add_argument('--heuristic', dest='heuristic', type=str, choices=HEURISTICS, default="blind")
     parser.add_argument('--working-dir', dest='working_dir', type=str, default=None)
     return parser.parse_args()
 
