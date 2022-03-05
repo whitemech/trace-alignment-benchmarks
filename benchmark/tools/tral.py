@@ -8,7 +8,7 @@ from benchmark.tools.core import (Heuristic, Result, SearchAlg, Tool,
                                   extract_from_tral_fd, extract_from_tral_symba,
                                   Encoding)
 
-DEFAULT_BIN_TRALFD_PATH = (REPO_ROOT / "bin" / "tral-planning").absolute()
+DEFAULT_BIN_TRAL_PATH = (REPO_ROOT / "bin" / "tral-planning").absolute()
 
 
 class SupportedPlanners:
@@ -92,10 +92,10 @@ class TralToolSYMBA(TralTool):
         binary_path: str,
         search: Union[SearchAlg, str] = SearchAlg.ASTAR,
         heuristic: Union[Heuristic, str] = Heuristic.BLIND,
-        encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
+        encoding: Union[Encoding, int] = Encoding.STRIPS
     ):
         """Initialize the tool."""
-        super().__init__(binary_path, SupportedPlanners.FD)
+        super().__init__(binary_path, SupportedPlanners.SYMBA)
 
         self.search = SearchAlg(search)
         self.heuristic = Heuristic(heuristic)

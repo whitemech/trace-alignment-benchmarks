@@ -10,6 +10,13 @@ build_downward() {
   cd ../../
 }
 
+build_symba() {
+  echo "Building SymBA*..."
+  cd third_party/symba-star &&\
+  ./build &&\
+  cd ../../
+}
+
 build_traceAlignmet() {
   echo "Building Trace Alignment..."
   cd third_party/trace-alignment &&\
@@ -20,6 +27,7 @@ build_traceAlignmet() {
 
 main() {
   build_downward
+  build_symba
   build_traceAlignmet
 }
 
