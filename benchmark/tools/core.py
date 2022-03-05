@@ -39,6 +39,8 @@ class ToolID(Enum):
     TRAL_STRIPS_FD_BLIND = "tral-strips-fd-blind"
     TRAL_STRIPS_FD_HMAX = "tral-strips-fd-hmax"
 
+    TRAL_STRIPS_SYMBA = "tral-strips-symba"
+
 
 class Status(Enum):
     SUCCESS = "success"
@@ -338,7 +340,7 @@ def extract_from_fd(output):
     )
 
 
-def extract_from_tral(output):
+def extract_from_tral_fd(output):
     compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
     if compilation_time != -1:
         compilation_time = compilation_time / 1000
@@ -374,3 +376,42 @@ def extract_from_tral(output):
         time_end2end=total_time,
         command=[],
     )
+
+
+def extract_from_tral_symba(output):
+    compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
+    if compilation_time != -1:
+        compilation_time = compilation_time / 1000
+
+    tool_times = try_to_get_all_float("Total time: (.*)s", output)
+    avg_tool_time = statistics.mean(tool_times)
+    plan_costs = try_to_get_all_float("Plan cost: (.*)", output)
+    avg_plan_cost = statistics.mean(plan_costs)
+    nb_node_exp = try_to_get_all_float("Expanded ([0-9]+) state\(s\).", output)
+    avg_nb_node_exp = statistics.mean(nb_node_exp)
+
+    total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
+
+    timed_out_match = re.search("Timed out.", output)
+    solution_found_match = re.search("Solution found.", output)
+    no_solution_match = re.search("return code", output)
+    if solution_found_match is not None:
+        status = Status.SUCCESS
+    elif no_solution_match is not None:
+        status = Status.FAILURE
+    elif timed_out_match is not None:
+        status = Status.TIMEOUT
+    else:
+        status = Status.ERROR
+
+    return Result(
+        name="",
+        status=status,
+        time_compilation=compilation_time,
+        avg_time_tool=avg_tool_time,
+        avg_plan_cost=avg_plan_cost,
+        avg_nb_node_expanded=avg_nb_node_exp,
+        time_end2end=total_time,
+        command=[],
+    )
+

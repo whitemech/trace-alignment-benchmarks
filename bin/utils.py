@@ -1,32 +1,30 @@
-import argparse
-import datetime
 import inspect
 import os
 import signal
-import tempfile
 from pathlib import Path
 from subprocess import Popen
-from tempfile import TemporaryDirectory
-from typing import Set
 
 SUPPORTED_PLANNERS = {
     "fd",
+    "symba"
 }
 
 BIN_DIR = Path(inspect.getframeinfo(inspect.currentframe()).filename).parent
 REPO_ROOT = BIN_DIR.parent
 FD_WRAPPER_PATH = BIN_DIR / "fd_wrapper"
+SYMBA_WRAPPER_PATH = BIN_DIR / "symba_wrapper"
 
 PACKAGE_ROOT = Path(inspect.getframeinfo(inspect.currentframe()).filename).parent  # type: ignore
 
 FD_DIR = REPO_ROOT / "third_party" / "downward"
 FD_DRIVER = (FD_DIR / "fast-downward.py").resolve()
 
+SYMBA_DIR = REPO_ROOT / "third_party" / "symba-star"
+SYMBA_DRIVER = (SYMBA_DIR / "plan").resolve()
+
 TRAL_JAR = (
     REPO_ROOT / "third_party" / "trace-alignment" / "app/build/libs" / "app-0.0.1.jar"
 ).resolve()
-# TRAL_DIR = (REPO_ROOT / "third_party" / "myND").resolve()  # type: ignore
-# TRAL_SRC_DIR = TRAL_DIR / "src"
 OUTPUT_DIR = REPO_ROOT
 
 ENCODINGS = {
