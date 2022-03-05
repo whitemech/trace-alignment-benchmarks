@@ -33,8 +33,10 @@ RUN HOME=/home/default &&                                                    \
     usermod -a -G sudo default &&                                            \
     echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
+RUN apt-get update
 
 RUN apt-get install -y                                                           \
+      time                                                                       \
       build-essential                                                            \
       software-properties-common                                                 \
       gcc-multilib g++-multilib                                                  \
@@ -51,6 +53,8 @@ RUN apt-get install -y                                                          
       vim                                                                        \
       curl                                                                       \
       libboost-dev                                                               \
+      python2                                                                    \
+      gawk                                                                       \
       python3                                                                    \
       pdf2svg                                                                    \
       groff                                                                      \
@@ -97,6 +101,9 @@ COPY .github_access_token ./.github_access_token
 RUN git clone https://${GITHUB_USER}:$(cat .github_access_token)@github.com/whitemech/trace-alignment.git ./third_party/trace-alignment &&\
     cd third_party/trace-alignment && ./scripts/_ci-install-dependencies-ubuntu.sh &&\
     ./gradlew build && cd ../../
+# clone SymBA*
+RUN git clone https://github.com/whitemech/SymBA-star.git ./third_party/SymBA-star &&\
+    cd third_party/SymBA-star && ./build && cd ../../
 
 # for plotting
 RUN sudo apt-get install -y dvipng texlive-latex-extra texlive-fonts-recommended cm-super
@@ -105,7 +112,6 @@ COPY benchmark ./benchmark
 COPY bin ./bin
 COPY data ./data
 COPY scripts ./scripts
-COPY third_party/app-0.0.1.jar third_party/app-0.0.1.jar
 COPY Pipfile Pipfile
 COPY Pipfile.lock Pipfile.lock
 
