@@ -115,6 +115,7 @@ def run_experiments(
         ToolID.TRAL_GCS_FD_HMAX.value,
         ToolID.TRAL_STRIPS_FD_BLIND.value,
         ToolID.TRAL_STRIPS_FD_HMAX.value,
+        ToolID.TRAL_STRIPS_SYMBA.value,
     ],
 )
 @click.option("--stop-on-timeout", type=bool, is_flag=True, default=False)
