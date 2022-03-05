@@ -19,7 +19,7 @@ PACKAGE_ROOT = Path(inspect.getframeinfo(inspect.currentframe()).filename).paren
 FD_DIR = REPO_ROOT / "third_party" / "downward"
 FD_DRIVER = (FD_DIR / "fast-downward.py").resolve()
 
-SYMBA_DIR = REPO_ROOT / "third_party" / "symba-star"
+SYMBA_DIR = REPO_ROOT / "third_party" / "SymBA-star"
 SYMBA_DRIVER = (SYMBA_DIR / "plan").resolve()
 
 TRAL_JAR = (
