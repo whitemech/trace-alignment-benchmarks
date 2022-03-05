@@ -12,7 +12,7 @@ build_downward() {
 
 build_symba() {
   echo "Building SymBA*..."
-  cd third_party/symba-star &&\
+  cd third_party/SymBA-star &&\
   ./build &&\
   cd ../../
 }
