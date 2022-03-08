@@ -112,9 +112,6 @@ COPY benchmark ./benchmark
 COPY bin ./bin
 COPY data ./data
 COPY scripts ./scripts
-COPY Pipfile Pipfile
-COPY Pipfile.lock Pipfile.lock
+COPY requirements.txt ./requirements.txt
 
-RUN pipenv install --dev
-
-CMD ["/bin/bash"]
+RUN sudo pip install -r requirements.txt
