@@ -8,9 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from benchmark.tools import ToolID, tool_registry
-from benchmark.utils.base import get_tools
-from benchmark.utils.plot_utils import try_unzip
+from benchmark.tools import ToolID
 
 matplotlib.rcParams["ps.useafm"] = True
 matplotlib.rcParams["pdf.use14corefonts"] = True
@@ -46,58 +44,57 @@ TOOL_TO_COLOR = {
 
 
 def get_marker(tool_id):
-    if "FDGen-b" in tool_id:
+    if "FD-Gen-b" in tool_id:
         return "s"
-    if "FDGen-m" in tool_id:
+    if "FD-Gen-m" in tool_id:
         return "D"
-    if "FDGenConj-b" in tool_id:
+    if "FD-GenConj-b" in tool_id:
         return "o"
-    if "FDGenConj-m" in tool_id:
+    if "FD-GenConj-m" in tool_id:
         return "v"
-    if "FDGenShare-b" in tool_id:
+    if "FD-GenShare-b" in tool_id:
         return "X"
-    if "FDGenShare-m" in tool_id:
+    if "FD-GenShare-m" in tool_id:
         return "<"
-    if "FDGenConjShare-b" in tool_id:
+    if "FD-GenConjShare-b" in tool_id:
         return "3"
-    if "FDGenConjShare-m" in tool_id:
+    if "FD-GenConjShare-m" in tool_id:
         return "p"
-    if "FDStrips-b" in tool_id:
+    if "FD-Strips-b" in tool_id:
         return "*"
-    if "FDStrips-m" in tool_id:
+    if "FD-Strips-m" in tool_id:
         return "+"
-    if "SymBAStrips" in tool_id:
+    if "SymBA-Strips" in tool_id:
         return "^"
     if "de Leoni et al." in tool_id:
         return ">"
-    # return TOOL_TO_MARKER.get(tool_id, None)
 
 
 def get_color(tool_id):
-    if "FDGen-b" in tool_id:
+    if "FD-Gen-b" in tool_id:
         return "orange"
-    if "FDGen-m" in tool_id:
+    if "FD-Gen-m" in tool_id:
         return "deepskyblue"
-    if "FDGenConj-b" in tool_id:
+    if "FD-GenConj-b" in tool_id:
         return "green"
-    if "FDGenConj-m" in tool_id:
+    if "FD-GenConj-m" in tool_id:
         return "olive"
-    if "FDGenShare-b" in tool_id:
+    if "FD-GenShare-b" in tool_id:
         return "pink"
-    if "FDGenShare-m" in tool_id:
+    if "FD-GenShare-m" in tool_id:
         return "cyan"
-    if "FDGenConjShare-b" in tool_id:
+    if "FD-GenConjShare-b" in tool_id:
         return "magenta"
-    if "FDGenConjShare-m" in tool_id:
+    if "FD-GenConjShare-m" in tool_id:
         return "red"
-    if "FDStrips-b" in tool_id:
+    if "FD-Strips-b" in tool_id:
         return "brown"
-    if "FDStrips-m" in tool_id:
+    if "FD-Strips-m" in tool_id:
         return "purple"
-    if "SymBAStrips" in tool_id:
+    if "SymBA-Strips" in tool_id:
         return "blue"
     if "de Leoni et al." in tool_id:
-        return "black"    # return TOOL_TO_COLOR.get(tool_id, None)
+        return "black"
 
 
 MARKER_CONFIGS = dict(
@@ -155,7 +152,7 @@ def main(
         cactus[:, idx] = compact_df[col].values
 
     ticks_lengths = ["1-50", "50-100", "100-150", "150-200"]
-    # print(dataframe)
+
     labels = ["FD-Gen-b", "FD-Gen-m", "FD-GenConj-b", "FD-GenConj-m",  "FD-GenShare-b", "FD-GenShare-m",  "FD-GenConjShare-b",
               "FD-GenConjShare-m", "FD-Strips-b", "FD-Strips-m", "SymBA-Strips", "de Leoni et al."]
     fig, ax = plt.subplots()
