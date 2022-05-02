@@ -116,7 +116,7 @@ def trunc(values, decimals=0):
 @click.argument("csv_file", type=click.Path(exists=True))
 @click.option("--output", default="output.svg")
 @click.option("--title", default=None)
-@click.option("--timeout", type=int, default=None)
+@click.option("--timeout", type=int, default=60)
 @click.option("--xlabel", type=str, required=True)
 @click.option("--ylabel", type=str, required=True)
 @click.option("--xtick-start", type=int, default=0)
@@ -149,7 +149,15 @@ def main(
     cactus = np.zeros((len(x_axis), len(indexes)))
 
     for idx, col in enumerate(compact_df):
-        cactus[:, idx] = compact_df[col].values
+        if 0 in compact_df[col]:
+            for i, v in enumerate(compact_df[col]):
+                if v == 0:
+                    cactus[i, idx] = timeout
+                else:
+                    cactus[i, idx] = v
+
+        else:
+            cactus[:, idx] = compact_df[col].values
 
     ticks_lengths = ["1-50", "50-100", "100-150", "150-200"]
 
@@ -174,7 +182,7 @@ def main(
     pos = ax.get_position()
     ax.set_position([pos.x0, pos.y0, pos.width * 1, pos.height * 1])
     if timeout:
-        plt.plot(x_axis, [timeout] * 4, linestyle=":", color="black")
+        plt.axhline(timeout, linestyle=":", color="black")
     ticks = np.arange(xtick_start, max_xtick + 2, step=stepsize)
     plt.xticks(ticks, ticks_lengths)
     # plt.yscale("log")
@@ -184,7 +192,7 @@ def main(
     plt.title(title)
     plt.grid()
     plt.savefig(output)
-    plt.show()
+    # plt.show()
     print(f"Plot saved in file: {output}")
 
 
