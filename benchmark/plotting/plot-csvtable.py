@@ -156,8 +156,8 @@ def main(
 
     ticks_lengths = ["1-50", "50-100", "100-150", "150-200"]
     # print(dataframe)
-    labels = ["FDGen-b", "FDGen-m", "FDGenConj-b", "FDGenConj-m",  "FDGenShare-b", "FDGenShare-m",  "FDGenConjShare-b",
-              "FDGenConjShare-m", "FDStrips-b", "FDStrips-m", "SymBAStrips", "de Leoni et al."]
+    labels = ["FD-Gen-b", "FD-Gen-m", "FD-GenConj-b", "FD-GenConj-m",  "FD-GenShare-b", "FD-GenShare-m",  "FD-GenConjShare-b",
+              "FD-GenConjShare-m", "FD-Strips-b", "FD-Strips-m", "SymBA-Strips", "de Leoni et al."]
     fig, ax = plt.subplots()
     for idx, label in enumerate(labels):
         print(f"Processing {label}")
