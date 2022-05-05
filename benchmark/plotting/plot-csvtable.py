@@ -116,7 +116,8 @@ def trunc(values, decimals=0):
 @click.argument("csv_file", type=click.Path(exists=True))
 @click.option("--output", default="output.svg")
 @click.option("--title", default=None)
-@click.option("--timeout", type=int, default=60)
+@click.option("--timeout", type=int, default=None)
+@click.option("--legend", type=bool, default=False)
 @click.option("--xlabel", type=str, required=True)
 @click.option("--ylabel", type=str, required=True)
 @click.option("--xtick-start", type=int, default=0)
@@ -128,6 +129,7 @@ def main(
     output: str,
     title: str,
     timeout: int,
+    legend: bool,
     xlabel: str,
     ylabel: str,
     xtick_start: int,
@@ -152,10 +154,11 @@ def main(
         if 0 in compact_df[col]:
             for i, v in enumerate(compact_df[col]):
                 if v == 0:
-                    cactus[i, idx] = timeout
+                    if timeout:
+                        cactus[i, idx] = timeout
+                    else: cactus[i, idx] = np.nan
                 else:
                     cactus[i, idx] = v
-
         else:
             cactus[:, idx] = compact_df[col].values
 
@@ -186,13 +189,16 @@ def main(
     ticks = np.arange(xtick_start, max_xtick + 2, step=stepsize)
     plt.xticks(ticks, ticks_lengths)
     # plt.yscale("log")
-    plt.legend(fontsize=11)
+    if legend:
+        plt.legend(fontsize=11)
+        # plt.legend(fontsize=10, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.3))
+        # plt.subplots_adjust(top=0.78)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
     plt.grid()
     plt.savefig(output)
-    # plt.show()
+    plt.show()
     print(f"Plot saved in file: {output}")
 
 
