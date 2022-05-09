@@ -1,0 +1,2615 @@
+<?xml version="1.0" ?>
+<!--This file has been generated with the OpenXES library. It conforms-->
+<!--to the XML serialization of the XES standard for log storage and-->
+<!--management.-->
+<!--XES standard version: 1.0-->
+<!--OpenXES library version: 1.0RC7-->
+<!--OpenXES is available from http://www.openxes.org/-->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<trace>
+		<date key="REG_DATE" value="2012-01-06T14:36:49.064+01:00"/>
+		<string key="concept:name" value="198627"/>
+		<string key="AMOUNT_REQ" value="9500"/>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_SUBMITTED"/>
+			<date key="time:timestamp" value="2012-01-06T14:36:49.064+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PARTLYSUBMITTED"/>
+			<date key="time:timestamp" value="2012-01-06T14:36:49.519+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PREACCEPTED"/>
+			<date key="time:timestamp" value="2012-01-06T14:37:28.275+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-06T14:37:28.826+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-06T16:21:19.335+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACCEPTED"/>
+			<date key="time:timestamp" value="2012-01-06T16:26:43.434+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2012-01-06T16:34:17.595+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_FINALIZED"/>
+			<date key="time:timestamp" value="2012-01-06T16:34:17.595+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2012-01-06T16:34:18.756+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2012-01-06T16:34:18.791+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-06T16:34:19.334+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-06T16:34:21.042+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-06T16:35:20.366+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-06T16:41:12.027+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-17T08:29:33.114+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT_BACK"/>
+			<date key="time:timestamp" value="2012-01-17T08:30:07.647+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-17T08:30:08.420+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-17T08:30:09.967+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-19T10:50:53.318+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-19T11:34:55.464+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-19T11:34:57.699+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-19T11:35:45.787+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-19T11:35:54.939+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-19T20:29:24.908+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-19T20:33:52.930+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10909"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-20T17:07:40.019+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10909"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-20T17:10:53.733+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T11:40:49.417+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T11:43:35.387+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T14:14:04.258+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T14:14:19.411+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T15:11:46.343+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T15:55:37.598+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T15:56:04.418+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-21T15:56:15.915+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-23T09:24:24.191+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T09:33:08.777+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-23T09:33:10.209+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T10:04:08.481+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T10:08:14.586+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T11:28:45.112+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T13:39:55.904+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T13:40:03.453+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T13:43:48.615+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T14:56:17.258+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-23T15:14:21.005+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-23T15:14:23.592+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-23T15:15:06.986+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-23T15:15:53.556+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T09:32:56.481+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T09:34:20.074+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T11:18:04.802+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T11:18:19.101+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T11:19:46.980+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-25T11:20:00.380+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T11:20:01.943+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-25T13:30:22.974+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T13:46:44.894+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-25T13:46:47.091+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T13:47:21.730+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T13:47:30.484+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10909"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T18:20:58.221+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10909"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-25T18:28:11.756+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10932"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T09:28:04.463+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10932"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T09:34:51.271+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T18:31:50.827+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T18:37:58.074+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T18:38:08.687+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T18:38:21.020+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-27T18:46:21.415+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-27T18:49:35.548+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-27T18:58:32.727+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-27T19:03:40.523+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T10:56:21.177+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T11:18:54.791+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T15:03:34.612+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T15:03:41.508+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T15:32:30.625+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T15:35:06.975+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T16:04:20.573+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11181"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-28T16:07:02.981+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10932"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-31T10:25:39.447+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10932"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-31T10:36:53.215+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-31T12:10:30.813+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11000"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-31T12:11:50.578+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-31T14:08:10.674+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-31T14:09:32.106+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-31T14:09:33.914+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-31T14:47:20.051+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_APPROVED"/>
+			<date key="time:timestamp" value="2012-01-31T15:06:31.543+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACTIVATED"/>
+			<date key="time:timestamp" value="2012-01-31T15:06:31.543+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_REGISTERED"/>
+			<date key="time:timestamp" value="2012-01-31T15:06:31.543+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_ACCEPTED"/>
+			<date key="time:timestamp" value="2012-01-31T15:06:31.543+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-31T15:06:40.091+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<date key="REG_DATE" value="2011-12-04T14:01:43.075+01:00"/>
+		<string key="concept:name" value="191106"/>
+		<string key="AMOUNT_REQ" value="5000"/>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_SUBMITTED"/>
+			<date key="time:timestamp" value="2011-12-04T14:01:43.075+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PARTLYSUBMITTED"/>
+			<date key="time:timestamp" value="2011-12-04T14:01:43.413+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Afhandelen leads"/>
+			<date key="time:timestamp" value="2011-12-04T14:02:21.386+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Afhandelen leads"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-12-05T09:52:58.080+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11120"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PREACCEPTED"/>
+			<date key="time:timestamp" value="2011-12-05T09:55:11.802+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<date key="time:timestamp" value="2011-12-05T09:55:11.861+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Afhandelen leads"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-12-05T09:55:13.632+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T12:41:38.978+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T12:43:41.937+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T15:22:36.729+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T15:23:41.864+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-12-05T15:27:51.219+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-12-05T15:28:04.018+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T18:36:03.605+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T18:37:08.145+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11179"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-06T18:29:07.855+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11179"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-06T18:29:18.472+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11119"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-06T19:50:41.213+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11119"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-06T19:55:41.221+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-12T10:57:40.400+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACCEPTED"/>
+			<date key="time:timestamp" value="2011-12-12T11:04:15.667+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-12-12T11:07:49.431+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_FINALIZED"/>
+			<date key="time:timestamp" value="2011-12-12T11:07:49.432+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-12-12T11:07:51.398+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-12-12T11:07:51.435+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-12T11:07:51.632+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-12T11:07:52.920+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-12T11:08:01.865+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-12T11:09:25.780+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10982"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-17T12:27:22.460+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10982"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-17T12:29:28.017+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-28T09:45:54.401+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-28T09:50:23.878+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-28T09:50:29.989+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-28T09:50:41.631+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-28T09:50:51.565+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-28T09:51:00.916+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2012-01-03T10:53:29.574+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2012-01-03T10:54:58.894+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2012-01-03T10:55:18.959+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2012-01-03T10:55:24.971+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T11:09:55.616+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T11:16:01.064+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T11:32:05.866+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T11:32:49.008+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T12:12:52.283+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2012-01-03T12:15:33.424+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CANCELLED"/>
+			<date key="time:timestamp" value="2012-01-03T12:15:33.424+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2012-01-03T12:15:34.396+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2012-01-03T12:15:34.445+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T12:15:34.557+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T12:15:35.851+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T12:16:56.833+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-03T12:18:22.755+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11003"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-13T14:23:59.515+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11003"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-13T14:26:55.583+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10861"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-18T11:12:33.333+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10861"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-18T11:12:53.418+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11119"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-20T18:09:08.513+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11119"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-20T18:11:34.860+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11119"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-20T18:32:54.241+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11119"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-20T18:33:32.465+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-23T20:31:20.050+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-23T20:32:09.559+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-24T11:01:01.500+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT_BACK"/>
+			<date key="time:timestamp" value="2012-01-24T11:01:27.229+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-24T11:01:27.382+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-24T11:01:29.674+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-26T14:05:30.340+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T15:04:00.401+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-26T15:04:02.257+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:14:55.035+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:14:56.997+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:15:09.813+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:19:27.000+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:22:35.246+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:25:04.722+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:38:49.703+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-26T16:52:18.901+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-27T14:49:41.622+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-27T14:50:17.144+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-27T14:50:19.834+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-30T08:48:35.360+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-30T08:53:05.316+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-30T08:53:07.709+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-30T12:49:00.873+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-30T12:53:59.031+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-30T12:54:01.613+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-02T17:56:48.967+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-02T18:06:59.821+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-03T09:17:41.689+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-03T09:21:12.305+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-03T10:08:10.747+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-03T10:36:59.316+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-03T10:37:32.235+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_DECLINED"/>
+			<date key="time:timestamp" value="2012-02-03T10:50:08.300+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_DECLINED"/>
+			<date key="time:timestamp" value="2012-02-03T10:50:08.300+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10609"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-02-03T10:50:14.915+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<date key="REG_DATE" value="2011-10-01T12:36:08.943+02:00"/>
+		<string key="concept:name" value="173730"/>
+		<string key="AMOUNT_REQ" value="15000"/>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_SUBMITTED"/>
+			<date key="time:timestamp" value="2011-10-01T12:36:08.943+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PARTLYSUBMITTED"/>
+			<date key="time:timestamp" value="2011-10-01T12:36:09.207+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PREACCEPTED"/>
+			<date key="time:timestamp" value="2011-10-01T12:36:59.265+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T12:36:59.652+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10912"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T13:52:49.258+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10912"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T13:55:31.990+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T15:14:58.530+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T15:15:12.440+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T15:15:21.163+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T15:31:19.388+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T15:31:39.115+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACCEPTED"/>
+			<date key="time:timestamp" value="2011-10-01T15:36:06.372+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-10-01T15:40:08.254+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_FINALIZED"/>
+			<date key="time:timestamp" value="2011-10-01T15:40:08.255+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-10-01T15:40:09.986+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-10-01T15:40:10.012+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-01T15:40:10.083+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-01T15:40:12.281+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-01T15:43:00.152+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11203"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-01T15:48:39.764+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-08T16:16:59.088+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-08T16:20:20.579+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-10T20:47:16.049+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-10T20:49:26.790+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-11T10:46:18.902+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-11T10:47:04.332+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10863"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-11T19:54:03.544+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10863"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-11T19:55:07.690+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-12T15:36:27.719+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-12T15:37:20.679+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-13T18:34:47.253+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-13T18:35:43.994+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-14T10:20:21.189+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11029"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT_BACK"/>
+			<date key="time:timestamp" value="2011-10-14T10:21:08.195+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<date key="time:timestamp" value="2011-10-14T10:21:08.488+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-14T10:21:10.086+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10809"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-19T12:25:18.775+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10809"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-19T13:20:03.327+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10809"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-19T13:20:05.181+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-19T13:23:54.742+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-19T13:32:57.273+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-19T13:34:34.009+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-19T13:36:44.465+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11122"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-19T18:55:05.396+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11122"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-19T19:11:47.711+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-20T08:10:10.268+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<date key="time:timestamp" value="2011-10-20T08:10:34.048+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-20T08:10:36.080+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-20T09:37:43.040+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T10:08:54.418+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-20T10:08:56.355+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T10:18:21.411+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T10:27:48.591+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-20T10:43:25.263+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<date key="time:timestamp" value="2011-10-20T10:45:04.247+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-20T10:45:06.646+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-20T11:55:35.390+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T12:00:44.987+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-20T12:00:47.010+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T12:19:37.251+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T12:32:33.048+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T13:51:25.207+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T13:52:22.540+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T16:25:05.793+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-20T16:25:39.915+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-10-20T16:25:42.079+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-20T16:55:11.416+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-21T06:15:05.392+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10809"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-21T09:01:28.362+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10809"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-21T09:05:10.854+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-21T09:06:55.307+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_ACCEPTED"/>
+			<date key="time:timestamp" value="2011-10-21T09:08:14.250+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACTIVATED"/>
+			<date key="time:timestamp" value="2011-10-21T09:08:14.251+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_REGISTERED"/>
+			<date key="time:timestamp" value="2011-10-21T09:08:14.251+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_APPROVED"/>
+			<date key="time:timestamp" value="2011-10-21T09:08:14.251+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10972"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-21T09:08:21.511+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<date key="REG_DATE" value="2011-12-04T09:20:13.875+01:00"/>
+		<string key="concept:name" value="191064"/>
+		<string key="AMOUNT_REQ" value="33000"/>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_SUBMITTED"/>
+			<date key="time:timestamp" value="2011-12-04T09:20:13.875+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PARTLYSUBMITTED"/>
+			<date key="time:timestamp" value="2011-12-04T09:20:14.758+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PREACCEPTED"/>
+			<date key="time:timestamp" value="2011-12-04T09:20:57.031+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-04T09:20:58.852+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T10:45:50.052+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T10:47:07.754+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:17:24.065+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:19:08.265+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:35:27.020+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:36:44.845+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:36:46.452+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:46:15.238+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:46:22.988+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACCEPTED"/>
+			<date key="time:timestamp" value="2011-12-05T11:48:51.670+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_FINALIZED"/>
+			<date key="time:timestamp" value="2011-12-05T11:51:07.012+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-12-05T11:51:07.012+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-12-05T11:51:08.379+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-12-05T11:51:08.493+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:51:08.663+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-12-05T11:51:09.955+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:51:21.371+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CANCELLED"/>
+			<date key="time:timestamp" value="2011-12-05T11:52:09.114+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-12-05T11:52:09.114+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-12-05T11:52:10.146+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-12-05T11:52:10.181+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:52:10.275+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:52:12.624+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:52:22.269+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:53:15.506+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:53:32.915+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:54:26.506+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:55:35.259+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10929"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-05T11:55:42.734+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10881"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-07T18:59:33.537+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10881"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-07T19:12:20.774+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-08T09:19:13.334+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CANCELLED"/>
+			<date key="time:timestamp" value="2011-12-08T09:20:07.560+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-12-08T09:20:07.561+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-12-08T09:20:09.817+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-12-08T09:20:09.866+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-08T09:20:09.960+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-08T09:20:11.396+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-08T10:34:18.754+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CANCELLED"/>
+			<date key="time:timestamp" value="2011-12-08T10:34:50.246+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-12-08T10:34:50.246+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-12-08T10:34:51.320+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-12-08T10:34:51.378+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-08T10:34:51.467+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10910"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-08T10:34:53.930+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-15T10:42:36.920+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-12-15T10:52:56.500+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-12-16T16:19:01.595+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-12-16T16:25:23.804+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-12-23T15:44:06.411+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-12-23T15:44:24.779+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-12-31T12:58:44.769+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-12-31T13:07:32.755+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-12-31T13:08:34.800+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-12-31T13:08:45.759+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-02T16:37:28.396+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT_BACK"/>
+			<date key="time:timestamp" value="2012-01-02T16:37:42.367+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-02T16:37:43.017+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2012-01-02T16:37:45.894+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-02T16:40:42.187+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-02T16:48:23.454+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-02T17:04:35.117+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-02T17:30:12.174+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-02T18:30:03.569+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T19:18:45.336+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-02T19:18:47.856+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T19:22:28.729+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T19:22:32.315+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T19:25:41.833+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T19:25:43.279+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:12:57.667+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:12:59.271+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:21:58.278+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:22:01.352+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:22:20.460+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:22:28.721+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:22:34.706+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11180"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-02T20:25:30.333+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2012-01-03T09:47:06.857+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2012-01-03T09:52:45.574+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-03T13:42:26.187+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-03T13:43:46.753+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2012-01-03T13:43:48.937+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-03T14:44:12.940+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_ACCEPTED"/>
+			<date key="time:timestamp" value="2012-01-03T14:55:58.109+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_APPROVED"/>
+			<date key="time:timestamp" value="2012-01-03T14:55:58.109+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_REGISTERED"/>
+			<date key="time:timestamp" value="2012-01-03T14:55:58.109+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACTIVATED"/>
+			<date key="time:timestamp" value="2012-01-03T14:55:58.109+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2012-01-03T14:56:06.297+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<date key="REG_DATE" value="2011-10-26T21:57:31.382+02:00"/>
+		<string key="concept:name" value="180091"/>
+		<string key="AMOUNT_REQ" value="48000"/>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_SUBMITTED"/>
+			<date key="time:timestamp" value="2011-10-26T21:57:31.382+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PARTLYSUBMITTED"/>
+			<date key="time:timestamp" value="2011-10-26T21:57:31.594+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="112"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Afhandelen leads"/>
+			<date key="time:timestamp" value="2011-10-26T21:58:09.817+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Afhandelen leads"/>
+			<date key="time:timestamp" value="2011-10-27T09:21:05.130+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_PREACCEPTED"/>
+			<date key="time:timestamp" value="2011-10-27T09:23:22.980+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T09:23:23.140+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11009"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Afhandelen leads"/>
+			<date key="time:timestamp" value="2011-10-27T09:23:24.024+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T09:32:29.641+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T09:38:40.000+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-10-27T13:22:07.043+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-10-27T13:22:13.897+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T13:25:29.644+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T13:25:38.211+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T13:43:35.734+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11189"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T13:46:12.452+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T15:34:18.600+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACCEPTED"/>
+			<date key="time:timestamp" value="2011-10-27T15:45:33.731+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-10-27T15:47:00.334+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_FINALIZED"/>
+			<date key="time:timestamp" value="2011-10-27T15:47:00.334+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-10-27T15:47:01.198+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-10-27T15:47:01.256+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-27T15:47:01.534+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Completeren aanvraag"/>
+			<date key="time:timestamp" value="2011-10-27T15:47:03.333+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-27T15:47:19.295+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-10-27T15:50:26.144+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CANCELLED"/>
+			<date key="time:timestamp" value="2011-10-27T15:50:26.144+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-10-27T15:50:27.466+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-10-27T15:50:27.493+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-27T15:50:27.745+02:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-10-27T15:50:29.028+02:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-11-03T18:25:10.068+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-11-03T18:32:46.057+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-11-08T15:56:23.001+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-11-08T15:59:57.186+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-11-08T16:06:14.180+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SELECTED"/>
+			<date key="time:timestamp" value="2011-11-08T16:11:36.842+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CANCELLED"/>
+			<date key="time:timestamp" value="2011-11-08T16:11:36.842+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_CREATED"/>
+			<date key="time:timestamp" value="2011-11-08T16:11:38.186+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT"/>
+			<date key="time:timestamp" value="2011-11-08T16:11:38.266+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-11-08T16:11:38.357+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-11-08T16:11:39.607+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-11-16T13:38:30.775+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-11-16T13:42:32.025+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-11-19T13:13:49.139+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10913"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<date key="time:timestamp" value="2011-11-19T13:19:38.326+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-11-21T11:30:54.012+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11029"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_SENT_BACK"/>
+			<date key="time:timestamp" value="2011-11-21T11:32:24.640+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<date key="time:timestamp" value="2011-11-21T11:32:24.809+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen offertes"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-11-21T11:32:26.621+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-23T10:59:21.907+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-23T11:19:11.651+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-23T11:19:13.350+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10809"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-23T11:48:56.227+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10809"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-23T12:06:46.202+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-23T13:44:25.251+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11169"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-23T13:50:10.869+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="START"/>
+			<date key="time:timestamp" value="2011-11-23T18:10:51.421+01:00"/>
+		</event>
+		<event>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<date key="time:timestamp" value="2011-11-23T18:14:17.384+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-24T11:18:13.448+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11049"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-24T11:19:52.789+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-25T09:40:08.157+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T09:40:43.296+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10899"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-25T09:40:45.315+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T10:42:02.450+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T10:47:56.151+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T12:06:43.762+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-25T12:08:57.965+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T12:09:00.338+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-25T12:15:12.936+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="SCHEDULE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T12:34:31.536+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="11002"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Nabellen incomplete dossiers"/>
+			<date key="time:timestamp" value="2011-11-25T12:34:34.641+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="START"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T13:45:55.475+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_REGISTERED"/>
+			<date key="time:timestamp" value="2011-11-25T13:48:22.705+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="O_ACCEPTED"/>
+			<date key="time:timestamp" value="2011-11-25T13:48:22.705+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_ACTIVATED"/>
+			<date key="time:timestamp" value="2011-11-25T13:48:22.705+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="A_APPROVED"/>
+			<date key="time:timestamp" value="2011-11-25T13:48:22.705+01:00"/>
+		</event>
+		<event>
+			<string key="org:resource" value="10138"/>
+			<string key="lifecycle:transition" value="COMPLETE"/>
+			<string key="concept:name" value="W_Valideren aanvraag"/>
+			<date key="time:timestamp" value="2011-11-25T13:48:30.406+01:00"/>
+		</event>
+	</trace>
+</log>
