@@ -8,8 +8,7 @@ import click
 
 from benchmark.run_planner import run_planner
 from benchmark.tools.core import Status, ToolID, save_data
-from benchmark.utils.base import (REPO_ROOT, TSV_FILENAME, configure_logging, default_output_dir, get_log_path,
-                                  get_real_log_path, )
+from benchmark.utils.base import (REPO_ROOT, TSV_FILENAME, configure_logging, default_output_dir, get_log_path)
 from benchmark.tools.core import InvertedConstraints, LogLengths
 
 
@@ -44,18 +43,18 @@ def run_experiments(
         try:
             logging.info("=" * 100)
             for log_length in lengths:
-                original_log_path = get_real_log_path(log_dataset_dir_root, log_length)
-                log_dir = tool_dir / f"log-{log_length}.xes"
+                original_log_path = log_dataset_dir_root
+                log_dir = tool_dir / f"{log_length}"
                 logging.info(f"Processing log: log-{log_length}.xes")
                 logging.info(f"Time: {datetime.datetime.now()}")
                 result = run_planner(
                     f"log-{log_length}",
-                    original_log_path / f"log-{log_length}.xes",
+                    original_log_path / f"{log_length}.xes",
                     constraints_path,
                     timeout,
                     tool,
                     {},
-                    str(log_dir / log_dir.stem),
+                    str(tool_dir / log_dir.stem),
                 )
                 logging.info(result.to_rows())
                 data.append(result)
