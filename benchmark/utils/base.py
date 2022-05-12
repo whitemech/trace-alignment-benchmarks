@@ -73,7 +73,3 @@ def get_log_path(log_dir_root: Path, constraints: int, inverted: int) -> Path:
     constraints_path = f"{constraints}_constraints"
     inverted_path = f"{inverted}_constraints_inverted"
     return log_dir_root / constraints_path / inverted_path
-
-
-def get_real_log_path(log_dir_root: Path, length: int) -> Path:
-    return log_dir_root / f"{length}"
