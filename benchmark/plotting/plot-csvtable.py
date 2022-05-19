@@ -66,6 +66,8 @@ def get_marker(tool_id):
         return "+"
     if "SymBA-Strips" in tool_id:
         return "^"
+    if "De Giacomo et al." in tool_id:
+        return "d"
     if "de Leoni et al." in tool_id:
         return ">"
 
@@ -93,6 +95,8 @@ def get_color(tool_id):
         return "purple"
     if "SymBA-Strips" in tool_id:
         return "blue"
+    if "De Giacomo et al." in tool_id:
+        return "lime"
     if "de Leoni et al." in tool_id:
         return "black"
 
@@ -103,7 +107,7 @@ MARKER_CONFIGS = dict(
 
 
 def line_width(tool_id):
-    if any(x in tool_id for x in {"p4p"}):
+    if any(x in tool_id for x in {"FD-GenConjShare-m"}):
         return "1"
     return "1"
 
@@ -145,7 +149,8 @@ def main(
 
     df = pd.read_csv(csv_file)
 
-    indexes = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34]
+    # indexes = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34]
+    indexes = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 35]
     compact_df = df.iloc[:, indexes]
 
     cactus = np.zeros((len(x_axis), len(indexes)))
@@ -162,10 +167,14 @@ def main(
         else:
             cactus[:, idx] = compact_df[col].values
 
-    ticks_lengths = ["1-50", "50-100", "100-150", "150-200"]
+    # ticks_lengths = ["1-50", "50-100", "100-150", "150-200"]
+    ticks_lengths = ["3-50", "51-75", "76-100", "101-128"]
 
-    labels = ["FD-Gen-b", "FD-Gen-m", "FD-GenConj-b", "FD-GenConj-m",  "FD-GenShare-b", "FD-GenShare-m",  "FD-GenConjShare-b",
-              "FD-GenConjShare-m", "FD-Strips-b", "FD-Strips-m", "SymBA-Strips", "de Leoni et al."]
+    # labels = ["FD-Gen-b", "FD-Gen-m", "FD-GenConj-b", "FD-GenConj-m",  "FD-GenShare-b", "FD-GenShare-m",
+    #           "FD-GenConjShare-b", "FD-GenConjShare-m", "FD-Strips-b", "FD-Strips-m", "SymBA-Strips", "de Leoni et al."]
+    labels = ["FD-Gen-b", "FD-Gen-m", "FD-GenConj-b", "FD-GenConj-m",  "FD-GenShare-b", "FD-GenShare-m",
+              "FD-GenConjShare-b", "FD-GenConjShare-m", "FD-Strips-b", "FD-Strips-m", "SymBA-Strips",
+              "De Giacomo et al.", "de Leoni et al."]
     fig, ax = plt.subplots()
     for idx, label in enumerate(labels):
         print(f"Processing {label}")
@@ -193,6 +202,8 @@ def main(
         plt.legend(fontsize=11)
         # plt.legend(fontsize=10, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.3))
         # plt.subplots_adjust(top=0.78)
+        # plt.legend(fontsize=9, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.3))
+        # plt.subplots_adjust(top=0.79)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
