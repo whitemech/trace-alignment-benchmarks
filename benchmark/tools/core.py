@@ -38,7 +38,6 @@ class ToolID(Enum):
     TRAL_GCS_FD_HMAX = "tral-gcs-fd-hmax"
     TRAL_STRIPS_FD_BLIND = "tral-strips-fd-blind"
     TRAL_STRIPS_FD_HMAX = "tral-strips-fd-hmax"
-
     TRAL_STRIPS_SYMBA = "tral-strips-symba"
 
 

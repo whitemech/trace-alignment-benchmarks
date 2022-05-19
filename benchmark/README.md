@@ -39,7 +39,7 @@ python benchmark/experiments/experiment-1.py --timeout 300.0 --min-param 3 --max
 Produce the plot:
 
 ```
-python benchmark/plotting/plot.py output --output output.pdf --xlabel "Parameter: Number of blocks" --ylabel "Time (seconds)" --xtick-start 3 --timeout 300
+python benchmark/plotting/plot-csvtable.py results/10-CONSTRAINTS-3-NOISE.csv --output output.pdf --title="10 constraints (3 inverted)" --xlabel="Trace length" --ylabel="Total alignment time (s)" --xtick-start=50 --stepsize=50 --max-xtick=200
 ```
 
 Print data as table:
