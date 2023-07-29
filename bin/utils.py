@@ -24,24 +24,24 @@ SYMBA2_WRAPPER_PATH = BIN_DIR / "symba2_wrapper"
 
 PACKAGE_ROOT = Path(inspect.getframeinfo(inspect.currentframe()).filename).parent  # type: ignore
 
-THIRD_PARTY_DIR = REPO_ROOT / "third_party"
+TOOLS_DIR = REPO_ROOT / "tools"
 
 
-BASELINE_DIR = REPO_ROOT / "third_party" / "sbd"
+BASELINE_DIR = TOOLS_DIR / "sbd"
 BASELINE_DRIVER = (BASELINE_DIR / "fast-downward.py").resolve()
-COMPLEMENTARY1_DIR = REPO_ROOT / "third_party" / "complementary1"
+COMPLEMENTARY1_DIR = TOOLS_DIR / "complementary1"
 COMPLEMENTARY1_DRIVER = (COMPLEMENTARY1_DIR / "fast-downward.py").resolve()
-CPDDL_DIR = REPO_ROOT / "third_party" / "cpddl"
+CPDDL_DIR = TOOLS_DIR / "cpddl"
 CPDDL_DRIVER = (CPDDL_DIR / "bin" / "pddl-symba").resolve()
-FD_DIR = REPO_ROOT / "third_party" / "downward"
+FD_DIR = TOOLS_DIR / "downward"
 FD_DRIVER = (FD_DIR / "fast-downward.py").resolve()
-SYMBA1_DIR = REPO_ROOT / "third_party" / "symba1"
+SYMBA1_DIR = TOOLS_DIR / "symba1"
 SYMBA1_DRIVER = (SYMBA1_DIR / "plan").resolve()
-SYMBA2_DIR = REPO_ROOT / "third_party" / "symba2"
+SYMBA2_DIR = TOOLS_DIR / "symba2"
 SYMBA2_DRIVER = (SYMBA2_DIR / "plan").resolve()
 
 TRAL_JAR = (
-    REPO_ROOT / "third_party" / "tracealigner" / "app/build/libs" / "app-0.0.1.jar"
+    TOOLS_DIR / "tracealigner" / "app/build/libs" / "app-0.0.1.jar"
 ).resolve()
 OUTPUT_DIR = REPO_ROOT
 

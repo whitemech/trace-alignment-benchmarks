@@ -102,19 +102,19 @@ USER default
 WORKDIR /home/default
 
 RUN mkdir /home/default/work
-RUN mkdir /home/default/work/third_party
+RUN mkdir /home/default/work/tools
 WORKDIR /home/default/work
 
 # clone and install downward
-#RUN git clone https://github.com/aibasel/downward.git ./third_party/downward &&\
-#    cd third_party/downward && ./build.py && cd ../../
+#RUN git clone https://github.com/aibasel/downward.git ./tools/downward &&\
+#    cd tools/downward && ./build.py && cd ../../
 # clone and install TraceAligner
-RUN git clone https://github.com/whitemech/TraceAligner.git ./third_party/tracealigner &&\
-    cd third_party/tracealigner && ./scripts/_ci-install-dependencies-ubuntu.sh &&\
+RUN git clone https://github.com/whitemech/TraceAligner.git ./tools/tracealigner &&\
+    cd tools/tracealigner && ./scripts/_ci-install-dependencies-ubuntu.sh &&\
     ./gradlew build && cd ../../
 # clone and install cpddl
-RUN git clone https://gitlab.com/danfis/cpddl.git ./third_party/cpddl &&\
-    cd third_party/cpddl &&\
+RUN git clone https://gitlab.com/danfis/cpddl.git ./tools/cpddl &&\
+    cd tools/cpddl &&\
     echo "IBM_CPLEX_ROOT = /opt/ibm/ILOG/CPLEX_Studio_Community2211" > Makefile.config &&\
     ./scripts/build.sh && cd ../../
 

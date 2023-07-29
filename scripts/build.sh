@@ -5,14 +5,14 @@ set -e
 
 build_downward() {
   echo "Building Downward..."
-  cd third_party/downward &&\
+  cd tools/downward &&\
   ./build.py &&\
   cd ../../
 }
 
 build_cpddl() {
   echo "Building CPDDL..."
-  cd third_party/cpddl &&\
+  cd tools/cpddl &&\
   echo "IBM_CPLEX_ROOT = /opt/ibm/ILOG/CPLEX_Studio_Community2211" > Makefile.config &&\
   ./scripts/build.sh &&\
   cd ../../
@@ -20,7 +20,7 @@ build_cpddl() {
 
 build_TraceAligner() {
   echo "Building Trace Aligner..."
-  cd third_party/tracealigner &&\
+  cd tools/tracealigner &&\
   ./gradlew build &&\
   ./gradlew install &&\
   cd ../../
