@@ -149,7 +149,7 @@ def main(
 
     df = pd.read_csv(csv_file)
 
-    indexes = [4, 10, 16, 22, 25, 31]
+    # indexes = [4, 10, 16, 22, 25, 31]
     indexes = [4, 10, 16, 22, 25, 31, 35]
     # indexes = [4, 10, 16, 22, 25, 31, 34]
     # indexes = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34]
@@ -220,7 +220,7 @@ def main(
     plt.title(title)
     plt.grid()
     plt.savefig(output)
-    plt.show()
+    # plt.show()
     print(f"Plot saved in file: {output}")
 
 

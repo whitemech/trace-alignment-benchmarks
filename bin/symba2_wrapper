@@ -3,7 +3,7 @@ import argparse
 import tempfile
 from pathlib import Path
 
-from bin.utils import SYMBA_DRIVER, SYMBA_DIR, launch
+from bin.utils import SYMBA2_DRIVER, SYMBA2_DIR, launch
 
 
 def plan(domain_path, problem_path, working_dir):
@@ -15,20 +15,20 @@ def plan(domain_path, problem_path, working_dir):
         working_dir.mkdir(exist_ok=True)
     else:
         working_dir = Path(tempfile.mkdtemp())
-    planner_command = [f"{SYMBA_DRIVER}",
+    planner_command = [f"{SYMBA2_DRIVER}",
                        str(domain_path),
                        str(problem_path),
                        ]
 
     print("Start planner")
-    launch(planner_command, cwd=str(SYMBA_DIR))
+    launch(planner_command, cwd=str(SYMBA2_DIR))
 
 
 if __name__ == '__main__':
     """
     Usage: python symba_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH> 
     """
-    parser = argparse.ArgumentParser(description="Wrapper for fast downward.")
+    parser = argparse.ArgumentParser(description="Wrapper for Symba2.")
     parser.add_argument('-d', dest='domain_path', type=Path, required=True)
     parser.add_argument('-p', dest='problem_path', type=Path, required=True)
     parser.add_argument('--working-dir', dest='working_dir', type=str, default=None)

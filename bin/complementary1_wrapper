@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+import argparse
+import tempfile
+from pathlib import Path
+
+from bin.utils import launch, COMPLEMENTARY1_DIR, COMPLEMENTARY1_DRIVER, ALGORITHMS, HEURISTICS
+
+
+def plan(domain_path, problem_path, algorithm, heuristic, working_dir):
+    """Optimal Planning."""
+    domain_path = str(Path(domain_path).absolute())
+    problem_path = str(Path(problem_path).absolute())
+    if working_dir:
+        working_dir = Path(args.working_dir)
+        working_dir.mkdir(exist_ok=True)
+    else:
+        working_dir = Path(tempfile.mkdtemp())
+    planner_command = [f"{COMPLEMENTARY1_DRIVER}",
+                       "--build=release64",
+                       "--plan-file",
+                       f"{COMPLEMENTARY1_DIR}/{tempfile.mkstemp()}",
+                       str(domain_path),
+                       str(problem_path),
+                       "--search",
+                       f"{algorithm}({heuristic})",
+                       ]
+
+    print("Start planner")
+    launch(planner_command, cwd=str(COMPLEMENTARY1_DIR))
+
+
+if __name__ == '__main__':
+    """
+    Usage: python complementary1_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH> 
+    """
+    parser = argparse.ArgumentParser(description="Wrapper for the complementary1 planner.")
+    parser.add_argument('-d', dest='domain_path', type=Path, required=True)
+    parser.add_argument('-p', dest='problem_path', type=Path, required=True)
+    parser.add_argument('-a', "--algorithm", dest='algorithm', type=str, choices=ALGORITHMS, default="astar")
+    parser.add_argument('--heuristic', dest='heuristic', type=str, choices=HEURISTICS, default="modular_pdb("
+                                                                                               "modular_rbp("
+                                                                                               "time_limit=200),"
+                                                                                               "rand_walk("
+                                                                                               "time_limit=10),900,"
+                                                                                               "pdb_factory"
+                                                                                               "=modular_symbolic," \
+          "create_perimeter=true)")
+    parser.add_argument('--working-dir', dest='working_dir', type=str, default=None)
+    args = parser.parse_args()
+
+    domain_path = args.domain_path
+    problem_path = args.problem_path
+    algorithm = args.algorithm
+    heuristic = args.heuristic
+    working_dir = args.working_dir
+
+    plan(domain_path, problem_path, algorithm, heuristic, working_dir)

@@ -3,10 +3,10 @@ import argparse
 import tempfile
 from pathlib import Path
 
-from bin.utils import FD_DRIVER, FD_DIR, launch, ALGORITHMS, HEURISTICS
+from bin.utils import CPDDL_DRIVER, CPDDL_DIR, launch
 
 
-def plan(domain_path, problem_path, algorithm, heuristic, working_dir):
+def plan(domain_path, problem_path, working_dir):
     """Optimal Planning."""
     domain_path = str(Path(domain_path).absolute())
     problem_path = str(Path(problem_path).absolute())
@@ -15,33 +15,37 @@ def plan(domain_path, problem_path, algorithm, heuristic, working_dir):
         working_dir.mkdir(exist_ok=True)
     else:
         working_dir = Path(tempfile.mkdtemp())
-    planner_command = [f"{FD_DRIVER}",
+    planner_command = [f"{CPDDL_DRIVER}",
+                       "--log-out",
+                       "stdout",
+                       "--symba-out",
+                       "stdout",
+                       "--fdr-tnfm",
+                       "--symba",
+                       "bi",
+                       "--symba-fw-pot",
+                       "--symba-fw-pot-cfg",
+                       "D,A+I",
                        str(domain_path),
                        str(problem_path),
-                       "--search",
-                       f"{algorithm}({heuristic}())",
                        ]
 
     print("Start planner")
-    launch(planner_command, cwd=str(FD_DIR))
+    launch(planner_command, cwd=str(CPDDL_DIR))
 
 
 if __name__ == '__main__':
     """
-    Usage: python fd_wrapper -d <DOMAIN-PATH> -p <PROBLEM-PATH> 
+    Usage: python cpddl_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH> 
     """
-    parser = argparse.ArgumentParser(description="Wrapper for fast downward.")
+    parser = argparse.ArgumentParser(description="Wrapper for the cpddl symbolic planner.")
     parser.add_argument('-d', dest='domain_path', type=Path, required=True)
     parser.add_argument('-p', dest='problem_path', type=Path, required=True)
-    parser.add_argument('-a', "--algorithm", dest='algorithm', type=str, choices=ALGORITHMS, default="astar")
-    parser.add_argument('--heuristic', dest='heuristic', type=str, choices=HEURISTICS, default="blind")
     parser.add_argument('--working-dir', dest='working_dir', type=str, default=None)
     args = parser.parse_args()
 
     domain_path = args.domain_path
     problem_path = args.problem_path
-    algorithm = args.algorithm
-    heuristic = args.heuristic
     working_dir = args.working_dir
 
-    plan(domain_path, problem_path, algorithm, heuristic, working_dir)
+    plan(domain_path, problem_path, working_dir)
