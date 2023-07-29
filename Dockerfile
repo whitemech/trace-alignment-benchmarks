@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-LABEL version="0.0.1"
+LABEL version="0.0.2"
 LABEL authors="Francesco Fuggitti <fuggitti@diag.uniroma1.it>"
 LABEL description="A Docker image to run Trace Alignment experiments."
 
@@ -39,11 +39,17 @@ RUN apt-get install -y                                                          
       time                                                                       \
       build-essential                                                            \
       software-properties-common                                                 \
-      gcc-multilib g++-multilib                                                  \
+      gcc-multilib                                                               \
+      g++-multilib                                                               \
+      g++                                                                        \
       make                                                                       \
+      pypy3                                                                      \
       git                                                                        \
+      gdb                                                                        \
       m4                                                                         \
       autotools-dev                                                              \
+      ca-certificates                                                            \
+      autoconf                                                                   \
       automake                                                                   \
       libtool                                                                    \
       cmake                                                                      \
@@ -53,6 +59,7 @@ RUN apt-get install -y                                                          
       vim                                                                        \
       curl                                                                       \
       libboost-dev                                                               \
+      libboost-program-options-dev                                               \
       python2                                                                    \
       gawk                                                                       \
       python3                                                                    \
@@ -86,6 +93,11 @@ RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python && \
 
 RUN pip3 install pipenv
 
+## Build CPLEX
+COPY ignore/cplex_studio2211.linux_x86_64.bin ./cplex.bin
+RUN chmod +x ./cplex.bin
+RUN ./cplex.bin -DLICENSE_ACCEPTED=TRUE -i silent
+
 USER default
 WORKDIR /home/default
 
@@ -93,17 +105,18 @@ RUN mkdir /home/default/work
 RUN mkdir /home/default/work/third_party
 WORKDIR /home/default/work
 
-# clone downward
-RUN git clone https://github.com/aibasel/downward.git ./third_party/downward &&\
-    cd third_party/downward && ./build.py && cd ../../
-# clone trace-alignment
-COPY .github_access_token ./.github_access_token
-RUN git clone https://${GITHUB_USER}:$(cat .github_access_token)@github.com/whitemech/trace-alignment.git ./third_party/trace-alignment &&\
-    cd third_party/trace-alignment && ./scripts/_ci-install-dependencies-ubuntu.sh &&\
+# clone and install downward
+#RUN git clone https://github.com/aibasel/downward.git ./third_party/downward &&\
+#    cd third_party/downward && ./build.py && cd ../../
+# clone and install TraceAligner
+RUN git clone https://github.com/whitemech/TraceAligner.git ./third_party/tracealigner &&\
+    cd third_party/tracealigner && ./scripts/_ci-install-dependencies-ubuntu.sh &&\
     ./gradlew build && cd ../../
-# clone SymBA*
-RUN git clone https://github.com/whitemech/SymBA-star.git ./third_party/SymBA-star &&\
-    cd third_party/SymBA-star && ./build && cd ../../
+# clone and install cpddl
+RUN git clone https://gitlab.com/danfis/cpddl.git ./third_party/cpddl &&\
+    cd third_party/cpddl &&\
+    echo "IBM_CPLEX_ROOT = /opt/ibm/ILOG/CPLEX_Studio_Community2211" > Makefile.config &&\
+    ./scripts/build.sh && cd ../../
 
 # for plotting
 RUN sudo apt-get install -y dvipng texlive-latex-extra texlive-fonts-recommended cm-super

@@ -1,9 +1,12 @@
+[submodule "third_party/tracealigner"]
+	path = third_party/tracealigner
+	url = https://github.com/whitemech/TraceAligner.git
+[submodule "third_party/sbd"]
+	path = third_party/sbd
+	url = https://bitbucket.org/ipc2018-classical/symbolic-baseline-planners.git
 [submodule "third_party/downward"]
 	path = third_party/downward
 	url = https://github.com/aibasel/downward.git
-[submodule "third_party/trace-alignment"]
-	path = third_party/trace-alignment
-	url = https://github.com/whitemech/trace-alignment.git
-[submodule "third_party/SymBA-star"]
-	path = third_party/SymBA-star
-	url = https://github.com/whitemech/SymBA-star.git
+[submodule "third_party/cpddl"]
+	path = third_party/cpddl
+	url = https://gitlab.com/danfis/cpddl

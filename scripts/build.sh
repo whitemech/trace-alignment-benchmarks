@@ -10,25 +10,26 @@ build_downward() {
   cd ../../
 }
 
-build_symba() {
-  echo "Building SymBA*..."
-  cd third_party/SymBA-star &&\
-  ./build &&\
+build_cpddl() {
+  echo "Building CPDDL..."
+  cd third_party/cpddl &&\
+  echo "IBM_CPLEX_ROOT = /opt/ibm/ILOG/CPLEX_Studio_Community2211" > Makefile.config &&\
+  ./scripts/build.sh &&\
   cd ../../
 }
 
-build_traceAlignmet() {
-  echo "Building Trace Alignment..."
-  cd third_party/trace-alignment &&\
+build_TraceAligner() {
+  echo "Building Trace Aligner..."
+  cd third_party/tracealigner &&\
   ./gradlew build &&\
   ./gradlew install &&\
   cd ../../
 }
 
 main() {
+  build_TraceAligner
+  build_cpddl
   build_downward
-  build_symba
-  build_traceAlignmet
 }
 
 echo "Start building"

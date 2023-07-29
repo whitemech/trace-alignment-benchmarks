@@ -28,18 +28,27 @@ class LogLengths(Enum):
 
 
 class ToolID(Enum):
-    TRAL_G_FD_BLIND = "tral-g-fd-blind"
-    TRAL_G_FD_HMAX = "tral-g-fd-hmax"
-    TRAL_GC_FD_BLIND = "tral-gc-fd-blind"
-    TRAL_GC_FD_HMAX = "tral-gc-fd-hmax"
-    TRAL_GS_FD_BLIND = "tral-gs-fd-blind"
-    TRAL_GS_FD_HMAX = "tral-gs-fd-hmax"
-    TRAL_GCS_FD_BLIND = "tral-gcs-fd-blind"
-    TRAL_GCS_FD_HMAX = "tral-gcs-fd-hmax"
-    TRAL_STRIPS_FD_BLIND = "tral-strips-fd-blind"
-    TRAL_STRIPS_FD_HMAX = "tral-strips-fd-hmax"
-    TRAL_STRIPS_SYMBA = "tral-strips-symba"
-
+    TRAL_G_FD_BLIND = "gen-fd-blind"
+    TRAL_GC_FD_BLIND = "genconj-fd-blind"
+    TRAL_GS_FD_BLIND = "genshare-fd-blind"
+    TRAL_GCS_FD_BLIND = "genconjshare-fd-blind"
+    TRAL_STRIPS_FD_BLIND = "strips-fd-blind"
+    TRAL_STRIPS_FD_LMCUT = "strips-fd-lmcut"
+    TRAL_GC_BASELINE = "genconj-baseline"
+    TRAL_GCS_BASELINE = "genconjshare-baseline"
+    TRAL_STRIPS_BASELINE = "strips-baseline"
+    TRAL_GC_COMPLEMENTARY1 = "genconj-complementary1"
+    TRAL_GCS_COMPLEMENTARY1 = "genconjshare-complementary1"
+    TRAL_STRIPS_COMPLEMENTARY1 = "strips-complementary1"
+    TRAL_GC_CPDDL = "genconj-cpddl"
+    TRAL_GCS_CPDDL = "genconjshare-cpddl"
+    TRAL_STRIPS_CPDDL = "strips-cpddl"
+    TRAL_GC_SYMBA1 = "genconj-symba1"
+    TRAL_GCS_SYMBA1 = "genconjshare-symba1"
+    TRAL_STRIPS_SYMBA1 = "strips-symba1"
+    TRAL_GC_SYMBA2 = "genconj-symba2"
+    TRAL_GCS_SYMBA2 = "genconjshare-symba2"
+    TRAL_STRIPS_SYMBA2 = "strips-symba2"
 
 class Status(Enum):
     SUCCESS = "success"
@@ -51,12 +60,15 @@ class Status(Enum):
 class SearchAlg(Enum):
     """Search algorithms"""
     ASTAR = "astar"
+    SBD = "sbd"
 
 
 class Heuristic(Enum):
     """Heuristics"""
     BLIND = "blind"
-    HMAX = "hmax"
+    LMCUT = "lmcut"
+    MODULAR_PDB = "modular_pdb(modular_rbp(time_limit=200),rand_walk(time_limit=10),900,pdb_factory=modular_symbolic," \
+          "create_perimeter=true)"
 
 
 class Encoding(Enum):
@@ -197,6 +209,7 @@ class Tool(ABC):
             stderr=subprocess.PIPE,
             cwd=cwd,
             preexec_fn=os.setsid,
+            encoding="utf-8",
         )
         try:
             stdout, stderr = proc.communicate(timeout=timeout)
@@ -207,9 +220,9 @@ class Tool(ABC):
         end = time.perf_counter()
         total = end - start
 
-        stdout, stderr = proc.communicate()
-        stdout = stdout.decode("utf-8")
-        stderr = stderr.decode("utf-8")
+        # stdout, stderr = proc.communicate()
+        # stdout = stdout.decode("utf-8")
+        # stderr = stderr.decode("utf-8")
 
         (Path(working_dir) / "stdout.txt").write_text(stdout)
         (Path(working_dir) / "stderr.txt").write_text(stderr)
@@ -303,7 +316,7 @@ class ToolRegistry:
         return tool_spec.make(**kwargs)
 
 
-def extract_from_fd(output):
+def extract_from_tral_complementary1(output):
     tool_time = try_to_get_float("Total time: (.*)s", output)
     compilation_time = try_to_get_float("Compilation time: +([0-9.]+) seconds", output)
     end2end_time = try_to_get_float(
@@ -339,6 +352,44 @@ def extract_from_fd(output):
     )
 
 
+def extract_from_tral_cpddl(output):
+    compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
+    if compilation_time != -1:
+        compilation_time = compilation_time / 1000
+
+    tool_times = try_to_get_all_float("Overall Elapsed Time: (.*)s", output)
+    avg_tool_time = statistics.mean(tool_times)
+    plan_costs = try_to_get_all_float("SYMBA: Plan Cost: (.*)", output)
+    avg_plan_cost = statistics.mean(plan_costs)
+    nb_node_exp = try_to_get_all_float("Expanded BDD Nodes: ([0-9]+)", output)
+    avg_nb_node_exp = statistics.mean(nb_node_exp)
+
+    total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
+
+    timed_out_match = re.search("Timed out.", output)
+    solution_found_match = re.search("DONE: PLAN FOUND", output)
+    no_solution_match = re.search("Error: (.*)", output)
+    if solution_found_match is not None:
+        status = Status.SUCCESS
+    elif no_solution_match is not None:
+        status = Status.FAILURE
+    elif timed_out_match is not None:
+        status = Status.TIMEOUT
+    else:
+        status = Status.ERROR
+
+    return Result(
+        name="",
+        status=status,
+        time_compilation=compilation_time,
+        avg_time_tool=avg_tool_time,
+        avg_plan_cost=avg_plan_cost,
+        avg_nb_node_expanded=avg_nb_node_exp,
+        time_end2end=total_time,
+        command=[],
+    )
+
+
 def extract_from_tral_fd(output):
     compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
     if compilation_time != -1:
@@ -356,6 +407,43 @@ def extract_from_tral_fd(output):
     timed_out_match = re.search("Timed out.", output)
     solution_found_match = re.search("search exit code: 0", output)
     no_solution_match = re.search("search exit code: 12", output)
+    if solution_found_match is not None:
+        status = Status.SUCCESS
+    elif no_solution_match is not None:
+        status = Status.FAILURE
+    elif timed_out_match is not None:
+        status = Status.TIMEOUT
+    else:
+        status = Status.ERROR
+
+    return Result(
+        name="",
+        status=status,
+        time_compilation=compilation_time,
+        avg_time_tool=avg_tool_time,
+        avg_plan_cost=avg_plan_cost,
+        avg_nb_node_expanded=avg_nb_node_exp,
+        time_end2end=total_time,
+        command=[],
+    )
+
+
+def extract_from_tral_baseline(output):
+    compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
+    if compilation_time != -1:
+        compilation_time = compilation_time / 1000
+
+    tool_times = try_to_get_all_float("Total time: (.*)s", output)
+    avg_tool_time = statistics.mean(tool_times)
+    plan_costs = try_to_get_all_float("Plan cost: (.*)", output)
+    avg_plan_cost = statistics.mean(plan_costs)
+    avg_nb_node_exp = -1
+
+    total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
+
+    timed_out_match = re.search("Timed out.", output)
+    solution_found_match = re.search("Solution found.", output)
+    no_solution_match = re.search("return code", output)
     if solution_found_match is not None:
         status = Status.SUCCESS
     elif no_solution_match is not None:
@@ -413,4 +501,3 @@ def extract_from_tral_symba(output):
         time_end2end=total_time,
         command=[],
     )
-

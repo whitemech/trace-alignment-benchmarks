@@ -69,4 +69,4 @@ E.g.:
 
 Trace-Alignment-Benchmarks is released under the GNU Lesser General Public License v3.0 or later (LGPLv3+).
 
-Copyright 2021 WhiteMech
+Copyright 2023 WhiteMech
