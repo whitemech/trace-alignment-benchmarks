@@ -33,16 +33,20 @@ COMPLEMENTARY1_DIR = TOOLS_DIR / "complementary1"
 COMPLEMENTARY1_DRIVER = (COMPLEMENTARY1_DIR / "fast-downward.py").resolve()
 CPDDL_DIR = TOOLS_DIR / "cpddl"
 CPDDL_DRIVER = (CPDDL_DIR / "bin" / "pddl-symba").resolve()
+CPDDL_IMG = (CPDDL_DIR / "cpddl-ubuntu-focal-v1.1-cplex.img").resolve()
 FD_DIR = TOOLS_DIR / "downward"
 FD_DRIVER = (FD_DIR / "fast-downward.py").resolve()
+FD_IMG = (FD_DIR / "fast-downward.sif").resolve()
 SYMBA1_DIR = TOOLS_DIR / "symba1"
 SYMBA1_DRIVER = (SYMBA1_DIR / "plan").resolve()
 SYMBA2_DIR = TOOLS_DIR / "symba2"
 SYMBA2_DRIVER = (SYMBA2_DIR / "plan").resolve()
 
+TRAL_DIR = TOOLS_DIR / "tracealigner"
 TRAL_JAR = (
-    TOOLS_DIR / "tracealigner" / "app/build/libs" / "app-0.0.1.jar"
+    TRAL_DIR / "app/build/libs" / "app-0.0.1.jar"
 ).resolve()
+TRAL_IMG = (TRAL_DIR / "tracealigner.sif").resolve()
 OUTPUT_DIR = REPO_ROOT
 
 ENCODINGS = {

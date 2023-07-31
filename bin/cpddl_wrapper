@@ -3,7 +3,7 @@ import argparse
 import tempfile
 from pathlib import Path
 
-from bin.utils import CPDDL_DRIVER, CPDDL_DIR, launch
+from bin.utils import CPDDL_DRIVER, CPDDL_DIR, launch, CPDDL_IMG
 
 
 def plan(domain_path, problem_path, working_dir):
@@ -15,20 +15,22 @@ def plan(domain_path, problem_path, working_dir):
         working_dir.mkdir(exist_ok=True)
     else:
         working_dir = Path(tempfile.mkdtemp())
-    planner_command = [f"{CPDDL_DRIVER}",
-                       "--log-out",
-                       "stdout",
-                       "--symba-out",
-                       "stdout",
-                       "--fdr-tnfm",
-                       "--symba",
-                       "bi",
-                       "--symba-fw-pot",
-                       "--symba-fw-pot-cfg",
-                       "D,A+I",
-                       str(domain_path),
-                       str(problem_path),
-                       ]
+    planner_command = [
+        # f"{CPDDL_DRIVER}",
+        f"{CPDDL_IMG}",
+        "--log-out",
+        "stdout",
+        "--symba-out",
+        "stdout",
+        "--fdr-tnfm",
+        "--symba",
+        "bi",
+        "--symba-fw-pot",
+        "--symba-fw-pot-cfg",
+        "D,A+I",
+        str(domain_path),
+        str(problem_path),
+    ]
 
     print("Start planner")
     launch(planner_command, cwd=str(CPDDL_DIR))
