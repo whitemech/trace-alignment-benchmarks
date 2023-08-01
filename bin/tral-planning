@@ -10,7 +10,7 @@ from pathlib import Path
 
 from bin.utils import ALGORITHMS, HEURISTICS, TRAL_JAR, launch, BASELINE_WRAPPER_PATH, \
     SUPPORTED_PLANNERS, is_valid_file, ENCODINGS, COMPLEMENTARY1_WRAPPER_PATH, CPDDL_WRAPPER_PATH, \
-    FD_WRAPPER_PATH, SYMBA1_WRAPPER_PATH, SYMBA2_WRAPPER_PATH
+    FD_WRAPPER_PATH, SYMBA1_WRAPPER_PATH, SYMBA2_WRAPPER_PATH, TRAL_IMG
 
 DEFAULT_OUTPUT_DIR: str = "output"
 BIN_DIR = Path(inspect.getframeinfo(inspect.currentframe()).filename).parent
@@ -44,10 +44,11 @@ if __name__ == '__main__':
     output_dir = working_dir / DEFAULT_OUTPUT_DIR
     cli_args =[
         # "/home/francesco/.sdkman/candidates/java/current/bin/java",
-        "java",
-        "-Xmx4g",
-        "-jar",
-        str(TRAL_JAR),
+        # "java",
+        # "-Xmx4g",
+        # "-jar",
+        # str(TRAL_JAR),
+        str(TRAL_IMG),
         "--log", args.log_path,
         "--formulas", args.formulas_path,
         "--encoding", str(args.encoding),
