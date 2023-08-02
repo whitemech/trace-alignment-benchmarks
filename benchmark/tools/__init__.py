@@ -1,6 +1,6 @@
 from benchmark.tools.core import Heuristic, SearchAlg, ToolID, ToolRegistry, Encoding
 from benchmark.tools.tral import DEFAULT_BIN_TRAL_PATH, TralToolFD, TralToolBASELINE, TralToolCOMPLEMENTARY1, \
-    TralToolCPDDL, TralToolSYMBA1, TralToolSYMBA2
+    TralToolCPDDL, TralToolSYMBA1, TralToolSYMBA2, TralToolRAGNAROK
 
 tool_registry = ToolRegistry()
 
@@ -89,6 +89,36 @@ tool_registry.register(
 tool_registry.register(
     ToolID.TRAL_STRIPS_CPDDL,
     tool_cls=TralToolCPDDL,
+    binary_path=DEFAULT_BIN_TRAL_PATH,
+    encoding=Encoding.STRIPS,
+)
+tool_registry.register(
+    ToolID.TRAL_G_RAGNAROK,
+    tool_cls=TralToolRAGNAROK,
+    binary_path=DEFAULT_BIN_TRAL_PATH,
+    encoding=Encoding.GEN,
+)
+tool_registry.register(
+    ToolID.TRAL_GC_RAGNAROK,
+    tool_cls=TralToolRAGNAROK,
+    binary_path=DEFAULT_BIN_TRAL_PATH,
+    encoding=Encoding.GEN_CONJ,
+)
+tool_registry.register(
+    ToolID.TRAL_GC_RAGNAROK,
+    tool_cls=TralToolRAGNAROK,
+    binary_path=DEFAULT_BIN_TRAL_PATH,
+    encoding=Encoding.GEN_CONJ,
+)
+tool_registry.register(
+    ToolID.TRAL_GCS_RAGNAROK,
+    tool_cls=TralToolCPDDL,
+    binary_path=DEFAULT_BIN_TRAL_PATH,
+    encoding=Encoding.GEN_CONJ_SHARE,
+)
+tool_registry.register(
+    ToolID.TRAL_STRIPS_RAGNAROK,
+    tool_cls=TralToolRAGNAROK,
     binary_path=DEFAULT_BIN_TRAL_PATH,
     encoding=Encoding.STRIPS,
 )

@@ -43,6 +43,11 @@ class ToolID(Enum):
     TRAL_GC_CPDDL = "genconj-cpddl"
     TRAL_GCS_CPDDL = "genconjshare-cpddl"
     TRAL_STRIPS_CPDDL = "strips-cpddl"
+    TRAL_G_RAGNAROK = "gen-ragnarok"
+    TRAL_GC_RAGNAROK = "genconj-ragnarok"
+    TRAL_GS_RAGNAROK = "genshare-ragnarok"
+    TRAL_GCS_RAGNAROK = "genconjshare-ragnarok"
+    TRAL_STRIPS_RAGNAROK = "strips-ragnarok"
     TRAL_GC_SYMBA1 = "genconj-symba1"
     TRAL_GCS_SYMBA1 = "genconjshare-symba1"
     TRAL_STRIPS_SYMBA1 = "strips-symba1"
@@ -444,6 +449,44 @@ def extract_from_tral_baseline(output):
     timed_out_match = re.search("Timed out.", output)
     solution_found_match = re.search("Solution found.", output)
     no_solution_match = re.search("return code", output)
+    if solution_found_match is not None:
+        status = Status.SUCCESS
+    elif no_solution_match is not None:
+        status = Status.FAILURE
+    elif timed_out_match is not None:
+        status = Status.TIMEOUT
+    else:
+        status = Status.ERROR
+
+    return Result(
+        name="",
+        status=status,
+        time_compilation=compilation_time,
+        avg_time_tool=avg_tool_time,
+        avg_plan_cost=avg_plan_cost,
+        avg_nb_node_expanded=avg_nb_node_exp,
+        time_end2end=total_time,
+        command=[],
+    )
+
+
+def extract_from_tral_ragnarok(output):
+    compilation_time = try_to_get_float("trace_alignment.App - Total wall-clock time: +([0-9.]+) ms", output)
+    if compilation_time != -1:
+        compilation_time = compilation_time / 1000
+
+    tool_times = try_to_get_all_float("Planner time: (.*)s", output)
+    avg_tool_time = statistics.mean(tool_times)
+    plan_costs = try_to_get_all_float("Plan Cost: (.*)", output)
+    avg_plan_cost = statistics.mean(plan_costs)
+    nb_node_exp = try_to_get_all_float("Expanded ([0-9]+) state(s)", output)
+    avg_nb_node_exp = statistics.mean(nb_node_exp)
+
+    total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
+
+    timed_out_match = re.search("Timed out.", output)
+    solution_found_match = re.search("Solution found.", output)
+    no_solution_match = re.search("exitcode: (^0)*", output)
     if solution_found_match is not None:
         status = Status.SUCCESS
     elif no_solution_match is not None:

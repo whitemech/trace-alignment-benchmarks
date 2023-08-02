@@ -9,6 +9,7 @@ SUPPORTED_PLANNERS = {
     "complementary1",
     "cpddl",
     "fd",
+    "ragnarok",
     "symba1",
     "symba2"
 }
@@ -19,6 +20,7 @@ BASELINE_WRAPPER_PATH = BIN_DIR / "baseline_wrapper"
 COMPLEMENTARY1_WRAPPER_PATH = BIN_DIR / "complementary1_wrapper"
 CPDDL_WRAPPER_PATH = BIN_DIR / "cpddl_wrapper"
 FD_WRAPPER_PATH = BIN_DIR / "fd_wrapper"
+RAGNAROK_WRAPPER_PATH = BIN_DIR / "ragnarok_wrapper"
 SYMBA1_WRAPPER_PATH = BIN_DIR / "symba1_wrapper"
 SYMBA2_WRAPPER_PATH = BIN_DIR / "symba2_wrapper"
 
@@ -36,6 +38,8 @@ CPDDL_DRIVER = (CPDDL_DIR / "bin" / "pddl-symba").resolve()
 CPDDL_IMG = (CPDDL_DIR / "cpddl-ubuntu-focal-v1.1-cplex.img").resolve()
 FD_DIR = TOOLS_DIR / "downward"
 FD_DRIVER = (FD_DIR / "fast-downward.py").resolve()
+RAGNAROK_DIR = TOOLS_DIR / "ragnarok"
+RAGNAROK_IMG = (RAGNAROK_DIR / "ragnarok.sif").resolve()
 FD_IMG = (FD_DIR / "fast-downward.sif").resolve()
 SYMBA1_DIR = TOOLS_DIR / "symba1"
 SYMBA1_DRIVER = (SYMBA1_DIR / "plan").resolve()

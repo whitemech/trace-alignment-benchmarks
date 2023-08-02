@@ -8,10 +8,18 @@ set -e
 build_cpddl() {
   echo "Building CPDDL apptainer..."
   cd tools/cpddl &&\
-  cp ../../${CPLEX} ./cplex.bin &&\
-  ./scripts/build-apptainer.sh --cplex cplex.bin --git v1.1 ubuntu-focal &&\
+  ./scripts/build-apptainer.sh --cplex ../../${CPLEX} --git v1.1 ubuntu-focal &&\
   rm cplex.bin &&\
   rm Apptainer.* &&\
+  cd ../../
+}
+
+build_ragnarok() {
+  echo "Building Ragnarok apptainer..."
+  cd tools/ragnarok &&\
+  export IPC_THIRD_PARTY=$(dirname ../../${CPLEX}) &&\
+  sed -i 's/CPLEX_Studio2211/CPLEX_Studio_Community2211/g' Apptainer.ragnarok &&\
+  apptainer build ragnarok.sif Apptainer.ragnarok &&\
   cd ../../
 }
 
@@ -24,6 +32,7 @@ build_TraceAligner() {
 
 main() {
   build_cpddl
+  build_ragnarok
   build_TraceAligner
 }
 
