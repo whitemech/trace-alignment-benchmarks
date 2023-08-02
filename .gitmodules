@@ -7,3 +7,6 @@
 [submodule "tools/cpddl"]
 	path = tools/cpddl
 	url = https://gitlab.com/danfis/cpddl.git
+[submodule "tools/ragnarok"]
+	path = tools/ragnarok
+	url = https://github.com/ipc2023-classical/planner17.git
