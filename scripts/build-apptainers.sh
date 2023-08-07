@@ -18,7 +18,6 @@ build_ragnarok() {
   echo "Building Ragnarok apptainer..."
   cd tools/ragnarok &&\
   export IPC_THIRD_PARTY=$(dirname ../../${CPLEX}) &&\
-  sed -i 's/CPLEX_Studio2211/CPLEX_Studio_Community2211/g' Apptainer.ragnarok &&\
   apptainer build ragnarok.sif Apptainer.ragnarok &&\
   cd ../../
 }

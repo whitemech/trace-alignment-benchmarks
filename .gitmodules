@@ -10,3 +10,6 @@
 [submodule "tools/ragnarok"]
 	path = tools/ragnarok
 	url = https://github.com/ipc2023-classical/planner17.git
+[submodule "tools/forbiditerative"]
+	path = tools/forbiditerative
+	url = https://github.com/IBM/forbiditerative.git

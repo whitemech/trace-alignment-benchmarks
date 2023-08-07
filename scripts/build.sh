@@ -3,6 +3,14 @@
 
 set -e
 
+build_cpddl() {
+  echo "Building CPDDL..."
+  cd tools/cpddl &&\
+  echo "IBM_CPLEX_ROOT = /opt/ibm/ILOG/CPLEX_Studio2211" > Makefile.config &&\
+  ./scripts/build.sh &&\
+  cd ../../
+}
+
 build_downward() {
   echo "Building Downward..."
   cd tools/downward &&\
@@ -10,11 +18,10 @@ build_downward() {
   cd ../../
 }
 
-build_cpddl() {
-  echo "Building CPDDL..."
-  cd tools/cpddl &&\
-  echo "IBM_CPLEX_ROOT = /opt/ibm/ILOG/CPLEX_Studio_Community2211" > Makefile.config &&\
-  ./scripts/build.sh &&\
+build_forbiditerative() {
+  echo "Building Forbid Iterative..."
+  cd tools/forbiditerative &&\
+  ./build.py &&\
   cd ../../
 }
 
@@ -27,9 +34,10 @@ build_TraceAligner() {
 }
 
 main() {
-  build_TraceAligner
   build_cpddl
   build_downward
+  build_forbiditerative
+  build_TraceAligner
 }
 
 echo "Start building"
