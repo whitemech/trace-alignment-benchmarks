@@ -33,6 +33,11 @@ class ToolID(Enum):
     TRAL_GS_FD_BLIND = "genshare-fd-blind"
     TRAL_GCS_FD_BLIND = "genconjshare-fd-blind"
     TRAL_STRIPS_FD_BLIND = "strips-fd-blind"
+    TRAL_G_FI = "gen-fi"
+    TRAL_GC_FI = "genconj-fi"
+    TRAL_GS_FI = "genshare-fi"
+    TRAL_GCS_FI = "genconjshare-fi"
+    TRAL_STRIPS_FI = "strips-fi"
     TRAL_STRIPS_FD_LMCUT = "strips-fd-lmcut"
     TRAL_GC_BASELINE = "genconj-baseline"
     TRAL_GCS_BASELINE = "genconjshare-baseline"
@@ -479,7 +484,7 @@ def extract_from_tral_ragnarok(output):
     avg_tool_time = statistics.mean(tool_times)
     plan_costs = try_to_get_all_float("Plan Cost: (.*)", output)
     avg_plan_cost = statistics.mean(plan_costs)
-    nb_node_exp = try_to_get_all_float("Expanded ([0-9]+) state(s)", output)
+    nb_node_exp = try_to_get_all_float("Expanded ([0-9]+) state\(s\)", output)
     avg_nb_node_exp = statistics.mean(nb_node_exp)
 
     total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)

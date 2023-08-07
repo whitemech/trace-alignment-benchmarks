@@ -20,6 +20,7 @@ class SupportedPlanners:
     COMPLEMENTARY1 = "complementary1"
     CPDDL = "cpddl"
     FD = "fd"
+    FI = "fi"
     RAGNAROK = "ragnarok"
     SYMBA_1 = "symba1"
     SYMBA_2 = "symba2"
@@ -166,6 +167,42 @@ class TralToolCPDDL(TralTool):
 class TralToolFD(TralTool):
 
     NAME = "TL-FD"
+
+    def __init__(
+        self,
+        binary_path: str,
+        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
+        encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
+    ):
+        """Initialize the tool."""
+        super().__init__(binary_path, SupportedPlanners.FD)
+
+        self.search = SearchAlg(search)
+        self.heuristic = Heuristic(heuristic)
+        self.encoding = Encoding(encoding)
+
+    def get_cli_args(
+        self,
+        log: Path,
+        formulas: Path,
+        working_dir: Optional[str] = None,
+    ) -> List[str]:
+        """Get CLI arguments."""
+        cli_args = super().get_cli_args(log, formulas, working_dir)
+        cli_args += ["--encoding", self.encoding.value]
+        cli_args += ["--algorithm", self.search.value]
+        cli_args += ["--heuristic", self.heuristic.value]
+        return cli_args
+
+    def collect_statistics(self, output: str) -> Result:
+        """Collect statistics."""
+        return extract_from_tral_fd(output)
+
+
+class TralToolFI(TralTool):
+
+    NAME = "TL-FI"
 
     def __init__(
         self,
