@@ -10,7 +10,7 @@ from pathlib import Path
 
 from bin.utils import ALGORITHMS, HEURISTICS, TRAL_JAR, launch, BASELINE_WRAPPER_PATH, \
     SUPPORTED_PLANNERS, is_valid_file, ENCODINGS, COMPLEMENTARY1_WRAPPER_PATH, CPDDL_WRAPPER_PATH, \
-    FD_WRAPPER_PATH, SYMBA1_WRAPPER_PATH, SYMBA2_WRAPPER_PATH, TRAL_IMG, RAGNAROK_WRAPPER_PATH
+    FD_WRAPPER_PATH, SYMBA1_WRAPPER_PATH, SYMBA2_WRAPPER_PATH, TRAL_IMG, RAGNAROK_WRAPPER_PATH, FI_WRAPPER_PATH
 
 DEFAULT_OUTPUT_DIR: str = "output"
 BIN_DIR = Path(inspect.getframeinfo(inspect.currentframe()).filename).parent
@@ -68,8 +68,8 @@ if __name__ == '__main__':
                             "-a", str(args.algorithm),
                             "--heuristic", str(args.heuristic),
                             "--working-dir", str(working_dir)]
-            elif args.planner == "ragnarok":
-                cli_args = [str(RAGNAROK_WRAPPER_PATH),
+            elif args.planner == "fi":
+                cli_args = [str(FI_WRAPPER_PATH),
                             "-d", f"{output_dir}/domain-e{str(args.encoding)}.pddl",
                             "-p", str(filepath),
                             "--working-dir", str(working_dir)]
@@ -106,8 +106,8 @@ if __name__ == '__main__':
                             "-a", str(args.algorithm),
                             "--heuristic", str(args.heuristic),
                             "--working-dir", str(working_dir)]
-            elif args.planner == "ragnarok":
-                cli_args = [str(RAGNAROK_WRAPPER_PATH),
+            elif args.planner == "fi":
+                cli_args = [str(FI_WRAPPER_PATH),
                             "-d", f"{output_dir}/domain-e{str(args.encoding)}.pddl",
                             "-p", str(filepath),
                             "--working-dir", str(working_dir)]
@@ -155,8 +155,8 @@ if __name__ == '__main__':
                             "-a", str(args.algorithm),
                             "--heuristic", str(args.heuristic),
                             "--working-dir", str(working_dir)]
-            elif args.planner == "ragnarok":
-                cli_args = [str(RAGNAROK_WRAPPER_PATH),
+            elif args.planner == "fi":
+                cli_args = [str(FI_WRAPPER_PATH),
                             "-d", f"{output_dir}/domain-{str(i)}.pddl",
                             "-p", f"{output_dir}/p-{str(i)}.pddl",
                             "--working-dir", str(working_dir)]
