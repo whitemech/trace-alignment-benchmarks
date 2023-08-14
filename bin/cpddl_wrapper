@@ -16,8 +16,8 @@ def plan(domain_path, problem_path, working_dir):
     else:
         working_dir = Path(tempfile.mkdtemp())
     planner_command = [
-        # f"{CPDDL_DRIVER}",
-        f"{CPDDL_IMG}",
+        f"{CPDDL_DRIVER}",
+        # f"{CPDDL_IMG}",
         "--log-out",
         "stdout",
         "--symba-out",

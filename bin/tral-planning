@@ -44,11 +44,11 @@ if __name__ == '__main__':
     output_dir = working_dir / DEFAULT_OUTPUT_DIR
     cli_args =[
         # "/home/francesco/.sdkman/candidates/java/current/bin/java",
-        # "java",
-        # "-Xmx4g",
-        # "-jar",
-        # str(TRAL_JAR),
-        str(TRAL_IMG),
+        "java",
+        "-Xmx4g",
+        "-jar",
+        str(TRAL_JAR),
+        # str(TRAL_IMG),
         "--log", args.log_path,
         "--formulas", args.formulas_path,
         "--encoding", str(args.encoding),
