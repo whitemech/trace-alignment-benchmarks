@@ -212,7 +212,7 @@ class TralToolFI(TralTool):
         encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
     ):
         """Initialize the tool."""
-        super().__init__(binary_path, SupportedPlanners.FD)
+        super().__init__(binary_path, SupportedPlanners.FI)
 
         self.search = SearchAlg(search)
         self.heuristic = Heuristic(heuristic)
