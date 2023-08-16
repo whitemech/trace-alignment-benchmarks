@@ -33,6 +33,11 @@ class ToolID(Enum):
     TRAL_GS_FD_BLIND = "genshare-fd-blind"
     TRAL_GCS_FD_BLIND = "genconjshare-fd-blind"
     TRAL_STRIPS_FD_BLIND = "strips-fd-blind"
+    TRAL_G_FD_HMAX = "gen-fd-hmax"
+    TRAL_GC_FD_HMAX = "genconj-fd-hmax"
+    TRAL_GS_FD_HMAX = "genshare-fd-hmax"
+    TRAL_GCS_FD_HMAX = "genconjshare-fd-hmax"
+    TRAL_STRIPS_FD_HMAX = "strips-fd-hmax"
     TRAL_G_FI = "gen-fi"
     TRAL_GC_FI = "genconj-fi"
     TRAL_GS_FI = "genshare-fi"
@@ -76,6 +81,7 @@ class SearchAlg(Enum):
 class Heuristic(Enum):
     """Heuristics"""
     BLIND = "blind"
+    HMAX = "hmax"
     LMCUT = "lmcut"
     MODULAR_PDB = "modular_pdb(modular_rbp(time_limit=200),rand_walk(time_limit=10),900,pdb_factory=modular_symbolic," \
           "create_perimeter=true)"

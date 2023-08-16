@@ -36,10 +36,10 @@ class TralTool(Tool, ABC):
         self.planner_id = planner_id
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
 
@@ -58,15 +58,14 @@ class TralTool(Tool, ABC):
 
 
 class TralToolBASELINE(TralTool):
-
     NAME = "TL-BASELINE"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = None,
-        encoding: Union[Encoding, int] = Encoding.STRIPS
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = None,
+            encoding: Union[Encoding, int] = Encoding.STRIPS
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.BASELINE)
@@ -76,10 +75,10 @@ class TralToolBASELINE(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)
@@ -93,15 +92,14 @@ class TralToolBASELINE(TralTool):
 
 
 class TralToolCOMPLEMENTARY1(TralTool):
-
     NAME = "TL-COMPLEMENTARY1"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.MODULAR_PDB,
-        encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = Heuristic.MODULAR_PDB,
+            encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.COMPLEMENTARY1)
@@ -111,10 +109,10 @@ class TralToolCOMPLEMENTARY1(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)
@@ -129,15 +127,14 @@ class TralToolCOMPLEMENTARY1(TralTool):
 
 
 class TralToolCPDDL(TralTool):
-
     NAME = "TL-CPDDL"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
-        encoding: Union[Encoding, int] = Encoding.STRIPS
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = Heuristic.BLIND,
+            encoding: Union[Encoding, int] = Encoding.STRIPS
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.CPDDL)
@@ -147,10 +144,10 @@ class TralToolCPDDL(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)
@@ -165,15 +162,14 @@ class TralToolCPDDL(TralTool):
 
 
 class TralToolFD(TralTool):
-
     NAME = "TL-FD"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
-        encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = Heuristic.BLIND,
+            encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.FD)
@@ -183,10 +179,10 @@ class TralToolFD(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)
@@ -201,15 +197,14 @@ class TralToolFD(TralTool):
 
 
 class TralToolFI(TralTool):
-
     NAME = "TL-FI"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
-        encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = Heuristic.BLIND,
+            encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.FI)
@@ -219,10 +214,10 @@ class TralToolFI(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)
@@ -237,15 +232,14 @@ class TralToolFI(TralTool):
 
 
 class TralToolRAGNAROK(TralTool):
-
     NAME = "TL-RAGNAROK"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
-        encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = Heuristic.BLIND,
+            encoding: Union[Encoding, int] = Encoding.GEN_CONJ_SHARE
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.RAGNAROK)
@@ -255,10 +249,10 @@ class TralToolRAGNAROK(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)
@@ -273,15 +267,14 @@ class TralToolRAGNAROK(TralTool):
 
 
 class TralToolSYMBA1(TralTool):
-
     NAME = "TL-SYMBA1"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
-        encoding: Union[Encoding, int] = Encoding.STRIPS
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = Heuristic.BLIND,
+            encoding: Union[Encoding, int] = Encoding.STRIPS
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.SYMBA_1)
@@ -291,10 +284,10 @@ class TralToolSYMBA1(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)
@@ -307,16 +300,16 @@ class TralToolSYMBA1(TralTool):
         """Collect statistics."""
         return extract_from_tral_symba(output)
 
-class TralToolSYMBA2(TralTool):
 
+class TralToolSYMBA2(TralTool):
     NAME = "TL-SYMBA2"
 
     def __init__(
-        self,
-        binary_path: str,
-        search: Union[SearchAlg, str] = SearchAlg.ASTAR,
-        heuristic: Union[Heuristic, str] = Heuristic.BLIND,
-        encoding: Union[Encoding, int] = Encoding.STRIPS
+            self,
+            binary_path: str,
+            search: Union[SearchAlg, str] = SearchAlg.ASTAR,
+            heuristic: Union[Heuristic, str] = Heuristic.BLIND,
+            encoding: Union[Encoding, int] = Encoding.STRIPS
     ):
         """Initialize the tool."""
         super().__init__(binary_path, SupportedPlanners.SYMBA_2)
@@ -326,10 +319,10 @@ class TralToolSYMBA2(TralTool):
         self.encoding = Encoding(encoding)
 
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
         cli_args = super().get_cli_args(log, formulas, working_dir)

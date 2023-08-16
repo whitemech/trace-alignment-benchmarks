@@ -25,6 +25,13 @@ build_forbiditerative() {
   cd ../../
 }
 
+build_symba2() {
+  echo "Building SymBA*2..."
+  cd tools/symba2 &&\
+  ./build &&\
+  cd ../../
+}
+
 build_TraceAligner() {
   echo "Building Trace Aligner..."
   cd tools/tracealigner &&\
@@ -37,6 +44,7 @@ main() {
   build_cpddl
   build_downward
   build_forbiditerative
+  build_symba2
   build_TraceAligner
 }
 

@@ -71,6 +71,7 @@ ALGORITHMS = {
 }
 HEURISTICS = {
     "blind",
+    "hmax",
     "lmcut",
     "modular_pdb(modular_rbp(time_limit=200),rand_walk(time_limit=10),900,pdb_factory=modular_symbolic,"
     "create_perimeter=true)",

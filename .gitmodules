@@ -13,3 +13,6 @@
 [submodule "tools/forbiditerative"]
 	path = tools/forbiditerative
 	url = https://github.com/IBM/forbiditerative.git
+[submodule "tools/symba2"]
+	path = tools/symba2
+	url = https://github.com/whitemech/SymBA-star.git

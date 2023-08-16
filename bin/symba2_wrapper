@@ -26,7 +26,7 @@ def plan(domain_path, problem_path, working_dir):
 
 if __name__ == '__main__':
     """
-    Usage: python symba_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH>
+    Usage: python symba2_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH>
     """
     parser = argparse.ArgumentParser(description="Wrapper for Symba2.")
     parser.add_argument('-d', dest='domain_path', type=Path, required=True)
