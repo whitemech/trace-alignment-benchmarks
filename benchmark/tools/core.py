@@ -65,6 +65,7 @@ class ToolID(Enum):
     TRAL_GCS_SYMBA2 = "genconjshare-symba2"
     TRAL_STRIPS_SYMBA2 = "strips-symba2"
 
+
 class Status(Enum):
     SUCCESS = "success"
     FAILURE = "failure"
@@ -84,7 +85,7 @@ class Heuristic(Enum):
     HMAX = "hmax"
     LMCUT = "lmcut"
     MODULAR_PDB = "modular_pdb(modular_rbp(time_limit=200),rand_walk(time_limit=10),900,pdb_factory=modular_symbolic," \
-          "create_perimeter=true)"
+                  "create_perimeter=true)"
 
 
 class Encoding(Enum):
@@ -196,13 +197,13 @@ class Tool(ABC):
         return self._binary_path
 
     def plan(
-        self,
-        log: Path,
-        formulas: Path,
-        timeout: float = 5.0,
-        cwd: Optional[str] = None,
-        name: Optional[str] = None,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            timeout: float = 5.0,
+            cwd: Optional[str] = None,
+            name: Optional[str] = None,
+            working_dir: Optional[str] = None,
     ) -> Result:
         """
         Apply the tool to a file.
@@ -270,10 +271,10 @@ class Tool(ABC):
 
     @abstractmethod
     def get_cli_args(
-        self,
-        log: Path,
-        formulas: Path,
-        working_dir: Optional[str] = None,
+            self,
+            log: Path,
+            formulas: Path,
+            working_dir: Optional[str] = None,
     ) -> List[str]:
         """Get CLI arguments."""
 
@@ -281,7 +282,7 @@ class Tool(ABC):
 class ToolSpec:
     """A specification for a particular instance of an object."""
 
-    def __init__(self, tool_id: ToolID, tool_cls: Type[Tool], **kwargs: Dict,) -> None:
+    def __init__(self, tool_id: ToolID, tool_cls: Type[Tool], **kwargs: Dict, ) -> None:
         """
         Initialize an item specification.
 
@@ -314,7 +315,7 @@ class ToolRegistry:
         self._specs: Dict[ToolID, ToolSpec] = {}
 
     def register(
-        self, tool_id: Union[str, ToolID], tool_cls: Type[Tool], **kwargs: Any
+            self, tool_id: Union[str, ToolID], tool_cls: Type[Tool], **kwargs: Any
     ):
         """Register a tool."""
         tool_id = ToolID(tool_id)

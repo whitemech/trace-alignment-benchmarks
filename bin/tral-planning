@@ -18,7 +18,7 @@ REPO_ROOT = BIN_DIR.parent
 
 
 def parse_args():
-    """Parse command-line aurguments."""
+    """Parse command-line arguments."""
     parser = argparse.ArgumentParser("tral-planning", description="A planner for Trace Alignment.")
     parser.add_argument('--log', dest='log_path', type=is_valid_file, required=True)
     parser.add_argument('--formulas', dest='formulas_path', type=is_valid_file, required=True)
@@ -73,6 +73,11 @@ if __name__ == '__main__':
                             "-d", f"{output_dir}/domain-e{str(args.encoding)}.pddl",
                             "-p", str(filepath),
                             "--working-dir", str(working_dir)]
+            elif args.planner == "ragnarok":
+                cli_args = [str(RAGNAROK_WRAPPER_PATH),
+                            "-d", f"{output_dir}/domain-e{str(args.encoding)}.pddl",
+                            "-p", str(filepath),
+                            "--working-dir", str(working_dir)]
             else:
                 raise ValueError
             start_tool = datetime.datetime.now()
@@ -108,6 +113,11 @@ if __name__ == '__main__':
                             "--working-dir", str(working_dir)]
             elif args.planner == "fi":
                 cli_args = [str(FI_WRAPPER_PATH),
+                            "-d", f"{output_dir}/domain-e{str(args.encoding)}.pddl",
+                            "-p", str(filepath),
+                            "--working-dir", str(working_dir)]
+            elif args.planner == "ragnarok":
+                cli_args = [str(RAGNAROK_WRAPPER_PATH),
                             "-d", f"{output_dir}/domain-e{str(args.encoding)}.pddl",
                             "-p", str(filepath),
                             "--working-dir", str(working_dir)]
@@ -157,6 +167,11 @@ if __name__ == '__main__':
                             "--working-dir", str(working_dir)]
             elif args.planner == "fi":
                 cli_args = [str(FI_WRAPPER_PATH),
+                            "-d", f"{output_dir}/domain-{str(i)}.pddl",
+                            "-p", f"{output_dir}/p-{str(i)}.pddl",
+                            "--working-dir", str(working_dir)]
+            elif args.planner == "ragnarok":
+                cli_args = [str(RAGNAROK_WRAPPER_PATH),
                             "-d", f"{output_dir}/domain-{str(i)}.pddl",
                             "-p", f"{output_dir}/p-{str(i)}.pddl",
                             "--working-dir", str(working_dir)]
