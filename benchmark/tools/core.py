@@ -489,20 +489,19 @@ def extract_from_tral_ragnarok(output):
 
     tool_times = try_to_get_all_float("Planner time: (.*)s", output)
     avg_tool_time = statistics.mean(tool_times)
-    plan_costs = try_to_get_all_float("Plan Cost: (.*)", output)
+    plan_costs = try_to_get_all_float("Plan cost: (.*)", output)
     avg_plan_cost = statistics.mean(plan_costs)
-    nb_node_exp = try_to_get_all_float("Expanded ([0-9]+) state\(s\)", output)
-    avg_nb_node_exp = statistics.mean(nb_node_exp)
+    avg_nb_node_exp = 0
 
     total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
 
     timed_out_match = re.search("Timed out.", output)
     solution_found_match = re.search("Solution found.", output)
-    no_solution_match = re.search("exitcode: (^0)*", output)
+    # no_solution_match = re.search("exitcode: (^0)*", output)
     if solution_found_match is not None:
         status = Status.SUCCESS
-    elif no_solution_match is not None:
-        status = Status.FAILURE
+    # elif no_solution_match is not None:
+    #     status = Status.FAILURE
     elif timed_out_match is not None:
         status = Status.TIMEOUT
     else:
