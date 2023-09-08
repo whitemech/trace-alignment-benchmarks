@@ -25,6 +25,13 @@ build_forbiditerative() {
   cd ../../
 }
 
+build_sbd() {
+  echo "Building sbd..."
+  cd tools/sbd &&\
+  ./build.py &&\
+  cd ../../
+}
+
 build_symba2() {
   echo "Building SymBA*2..."
   cd tools/symba2 &&\

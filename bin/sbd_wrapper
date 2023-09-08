@@ -31,7 +31,7 @@ def plan(domain_path, problem_path, algorithm, working_dir):
 
 if __name__ == '__main__':
     """
-    Usage: python baseline_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH>
+    Usage: python sbd_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH>
     """
     parser = argparse.ArgumentParser(description="Wrapper for the symbolic baseline planner.")
     parser.add_argument('-d', dest='domain_path', type=Path, required=True)
