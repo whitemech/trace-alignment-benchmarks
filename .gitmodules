@@ -16,3 +16,6 @@
 [submodule "tools/symba2"]
 	path = tools/symba2
 	url = https://github.com/whitemech/SymBA-star.git
+[submodule "tools/sbd"]
+	path = tools/sbd
+	url = https://github.com/ipc2023-classical/planner14.git
