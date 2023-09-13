@@ -16,13 +16,12 @@ def plan(domain_path, problem_path, algorithm, working_dir):
     else:
         working_dir = Path(tempfile.mkdtemp())
     planner_command = [f"{BASELINE_DRIVER}",
-                       "--build=release64",
                        "--plan-file",
                        f"{BASELINE_DIR}/{tempfile.mkstemp()}",
                        str(domain_path),
                        str(problem_path),
                        "--search",
-                       f"{algorithm}()",
+                       f"sbd()",
                        ]
 
     print("Start planner")
@@ -33,7 +32,7 @@ if __name__ == '__main__':
     """
     Usage: python sbd_wrapper.py -d <DOMAIN-PATH> -p <PROBLEM-PATH>
     """
-    parser = argparse.ArgumentParser(description="Wrapper for the symbolic baseline planner.")
+    parser = argparse.ArgumentParser(description="Wrapper for the symbolic bi-directional baseline planner.")
     parser.add_argument('-d', dest='domain_path', type=Path, required=True)
     parser.add_argument('-p', dest='problem_path', type=Path, required=True)
     parser.add_argument('-a', "--algorithm", dest='algorithm', type=str, choices=ALGORITHMS, default="sbd")

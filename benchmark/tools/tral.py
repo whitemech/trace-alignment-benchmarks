@@ -16,7 +16,7 @@ DEFAULT_BIN_TRAL_PATH = (REPO_ROOT / "bin" / "tral-planning").absolute()
 
 
 class SupportedPlanners:
-    BASELINE = "baseline"
+    BASELINE = "sbd"
     COMPLEMENTARY1 = "complementary1"
     CPDDL = "cpddl"
     FD = "fd"
