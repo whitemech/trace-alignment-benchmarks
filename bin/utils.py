@@ -5,7 +5,7 @@ from pathlib import Path
 from subprocess import Popen
 
 SUPPORTED_PLANNERS = {
-    "baseline",
+    "sbd",
     "complementary1",
     "cpddl",
     "fd",
@@ -17,7 +17,7 @@ SUPPORTED_PLANNERS = {
 
 BIN_DIR = Path(inspect.getframeinfo(inspect.currentframe()).filename).parent
 REPO_ROOT = BIN_DIR.parent
-BASELINE_WRAPPER_PATH = BIN_DIR / "baseline_wrapper"
+BASELINE_WRAPPER_PATH = BIN_DIR / "sbd_wrapper"
 COMPLEMENTARY1_WRAPPER_PATH = BIN_DIR / "complementary1_wrapper"
 CPDDL_WRAPPER_PATH = BIN_DIR / "cpddl_wrapper"
 FD_WRAPPER_PATH = BIN_DIR / "fd_wrapper"

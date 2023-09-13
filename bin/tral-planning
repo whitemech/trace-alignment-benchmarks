@@ -86,7 +86,7 @@ if __name__ == '__main__':
     elif args.encoding < 4:
         for filepath in glob.iglob(f"{output_dir}/p*.pddl"):
             cli_args = []
-            if args.planner == "baseline":
+            if args.planner == "sbd":
                 cli_args = [str(BASELINE_WRAPPER_PATH),
                             "-d", f"{output_dir}/domain-e{str(args.encoding)}.pddl",
                             "-p", str(filepath),
@@ -140,7 +140,7 @@ if __name__ == '__main__':
         assert args.encoding == 4, "Encoding not supported!"
         for i in range(0, len(os.listdir(output_dir)) // 2):
             cli_args = []
-            if args.planner == "baseline":
+            if args.planner == "sbd":
                 cli_args = [str(BASELINE_WRAPPER_PATH),
                             "-d", f"{output_dir}/domain-{str(i)}.pddl",
                             "-p", f"{output_dir}/p-{str(i)}.pddl",
