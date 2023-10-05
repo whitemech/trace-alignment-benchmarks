@@ -1,3 +1,4 @@
+"""Produce a CSV file with results."""
 from pathlib import Path
 
 import click
@@ -27,18 +28,18 @@ def main(directory: str):
         data = pd.read_csv(file, sep="\t")
 
         # assert set(data.avg_plan_cost).issubset(costs_10_constraints), "Costs do not match!"
-        column_tot = np.zeros(len(df_tot.index))
+        column_compilation_time = np.zeros(len(df_tot.index))
         column_tool = np.zeros(len(df_tot.index))
         i = 0
         for row in data.itertuples():
             if row.status == "error":
                 ValueError("Error in the results")
             elif row.status == "success":
-                column_tot[i] = row.time_compilation + row.avg_time_tool
+                column_compilation_time[i] = row.time_compilation
                 column_tool[i] = row.avg_time_tool
             i += 1
 
-        df_tot[f"{encoding_name}-{tool_name}-tot"] = column_tot
+        df_tot[f"{encoding_name}-{tool_name}-comp"] = column_compilation_time
         df_tot[f"{encoding_name}-{tool_name}-time"] = column_tool
 
         df_tot = df_tot[["length", *sorted(df_tot.columns[1:], key=lambda x: (x[1:], x[0]))]]
