@@ -496,7 +496,7 @@ def extract_from_tral_ragnarok(output):
     total_time = try_to_get_float("Total cumulated time: +([0-9.]+) seconds", output, default=None)
 
     timed_out_match = re.search("Timed out.", output)
-    solution_found_match = re.search("Solution found.", output)
+    solution_found_match = re.search("Solutions found.", output)
     # no_solution_match = re.search("exitcode: (^0)*", output)
     if solution_found_match is not None:
         status = Status.SUCCESS
