@@ -15,12 +15,28 @@ tool_registry.register(
     encoding=Encoding.GEN,
 )
 tool_registry.register(
+    ToolID.TRAL_GC_FD_BLIND,
+    tool_cls=TralToolFD,
+    binary_path=DEFAULT_BIN_TRAL_PATH,
+    search=SearchAlg.ASTAR,
+    heuristic=Heuristic.BLIND,
+    encoding=Encoding.GEN_CONJ,
+)
+tool_registry.register(
     ToolID.TRAL_GS_FD_BLIND,
     tool_cls=TralToolFD,
     binary_path=DEFAULT_BIN_TRAL_PATH,
     search=SearchAlg.ASTAR,
     heuristic=Heuristic.BLIND,
     encoding=Encoding.GEN_SHARE,
+)
+tool_registry.register(
+    ToolID.TRAL_GCS_FD_BLIND,
+    tool_cls=TralToolFD,
+    binary_path=DEFAULT_BIN_TRAL_PATH,
+    search=SearchAlg.ASTAR,
+    heuristic=Heuristic.BLIND,
+    encoding=Encoding.GEN_CONJ_SHARE,
 )
 tool_registry.register(
     ToolID.TRAL_STRIPS_FD_BLIND,
