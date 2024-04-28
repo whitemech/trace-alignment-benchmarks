@@ -1,7 +1,9 @@
 """Compute stats on noisy traces on logs."""
+
 from pathlib import Path
 
 import click
+import numpy as np
 
 from benchmark.utils.base import try_to_get_all_float
 
@@ -27,7 +29,7 @@ def main(directory: str):
     }
 
     for file in sorted(Path(directory).glob("*.txt")):
-        print(f"reading file {str(file)}")
+        # print(f"reading file {str(file)}")
         num_constraint, inverted, log = Path(file).stem.split("-")
 
         with open(file, "r") as f:
@@ -50,17 +52,36 @@ def main(directory: str):
             percentages_of_noise_in_all_traces_per_log[num_constraint][inverted][
                 log
             ].append((plan_cost / plan_length) * 100)
-    print(percentages_of_noise_in_all_traces_per_log)
+    # print(percentages_of_noise_in_all_traces_per_log)
 
-    # df = pd.DataFrame.from_dict(
-    #     {
-    #         f"{i}-{j}": percentages_of_noisy_traces_per_log[i][j]
-    #         for i in percentages_of_noisy_traces_per_log.keys()
-    #         for j in percentages_of_noisy_traces_per_log[i].keys()
-    #     },
-    #     orient="index",
-    # )
-    # df.transpose().to_csv("noisy_traces.csv", index=False, float_format="%.0f")
+    data = []
+    # loop over the arrays in percentages_of_noise_in_all_traces_per_log
+    for num_constraint in percentages_of_noise_in_all_traces_per_log.keys():
+        for inverted in percentages_of_noise_in_all_traces_per_log[
+            num_constraint
+        ].keys():
+            for log, values in percentages_of_noise_in_all_traces_per_log[
+                num_constraint
+            ][inverted].items():
+                npa = np.asarray(values, dtype=np.float32)
+                # print stats of npa
+                print(
+                    f"Stats for {num_constraint} constraints, {inverted} inverted constraints, log {log}:"
+                )
+                print(
+                    f"Mean: {np.mean(npa)}\tMedian: {np.median(npa)}\tStd: {np.std(npa)}\tMin: {np.min(npa)}\tMax: {np.max(npa)}"
+                )
+                data.append(
+                    [
+                        np.round(np.mean(npa), 3),
+                        np.round(np.median(npa), 3),
+                        np.round(np.std(npa), 3),
+                        np.round(np.min(npa), 3),
+                        np.round(np.max(npa), 3),
+                    ]
+                )
+
+    np.savetxt("noise-stats.csv", data, delimiter=",")
 
 
 if __name__ == "__main__":
